@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rose</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lora:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Lora', Georgia, serif;
+      background: linear-gradient(160deg, #fff0f3 0%, #ffd6de 50%, #f7b6c2 100%);
+      color: #4a1c26;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.8rem, 8vw, 4.5rem);
+      color: #b3123a;
+      text-shadow: 2px 2px 0 #fff;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-style: italic;
+      color: #7a3a48;
+      margin-bottom: 30px;
+    }
+
+    .rose {
+      width: 220px;
+      height: 320px;
+      animation: sway 5s ease-in-out infinite;
+      transform-origin: bottom center;
+      filter: drop-shadow(0 10px 15px rgba(140, 20, 50, 0.25));
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(-3deg); }
+      50%      { transform: rotate(3deg); }
+    }
+
+    .poem {
+      background: rgba(255, 255, 255, 0.75);
+      border-left: 5px solid #b3123a;
+      border-radius: 12px;
+      padding: 35px 45px;
+      margin-top: 30px;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 8px 30px rgba(140, 20, 50, 0.15);
+    }
+
+    .poem h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.2rem;
+      color: #b3123a;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .stanza {
+      margin-bottom: 18px;
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    .author {
+      text-align: right;
+      font-style: italic;
+      color: #7a3a48;
+      margin-top: 10px;
+    }
+
+    .petal {
+      position: fixed;
+      top: -30px;
+      width: 14px;
+      height: 14px;
+      background: #e8395f;
+      border-radius: 0 50% 50% 50%;
+      opacity: 0.7;
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(110vh) rotate(720deg); }
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #7a3a48;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>The Rose</h1>
+  <p class="subtitle">A flower of love, beauty and grace</p>
+
+  <!-- Rose drawn with SVG -->
+  <svg class="rose" viewBox="0 0 220 320" xmlns="http://www.w3.org/2000/svg" aria-label="A red rose">
+    <!-- Stem -->
+    <path d="M110 140 C 105 200, 118 250, 110 315" stroke="#2f7a3a" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <!-- Thorns -->
+    <path d="M108 200 l-10 -4 l9 -4 z" fill="#2f7a3a"/>
+    <path d="M114 260 l10 -4 l-9 -4 z" fill="#2f7a3a"/>
+    <!-- Leaves -->
+    <path d="M110 230 C 70 210, 50 230, 40 245 C 70 255, 95 250, 110 230 Z" fill="#3d9a4b"/>
+    <path d="M110 230 C 80 232, 60 240, 40 245" stroke="#2f7a3a" stroke-width="2" fill="none"/>
+    <path d="M112 185 C 150 165, 172 180, 182 195 C 150 205, 128 200, 112 185 Z" fill="#3d9a4b"/>
+    <path d="M112 185 C 140 188, 162 192, 182 195" stroke="#2f7a3a" stroke-width="2" fill="none"/>
+    <!-- Sepals -->
+    <path d="M110 140 L 85 150 L 100 135 Z" fill="#2f7a3a"/>
+    <path d="M110 140 L 135 150 L 120 135 Z" fill="#2f7a3a"/>
+    <!-- Outer petals -->
+    <path d="M110 145 C 55 140, 45 80, 70 55 C 85 90, 100 110, 110 145 Z" fill="#a50f33"/>
+    <path d="M110 145 C 165 140, 175 80, 150 55 C 135 90, 120 110, 110 145 Z" fill="#a50f33"/>
+    <!-- Middle petals -->
+    <path d="M110 140 C 65 125, 65 70, 95 50 C 100 85, 108 110, 110 140 Z" fill="#c8173f"/>
+    <path d="M110 140 C 155 125, 155 70, 125 50 C 120 85, 112 110, 110 140 Z" fill="#c8173f"/>
+    <!-- Inner bud -->
+    <path d="M110 125 C 80 115, 82 60, 110 45 C 138 60, 140 115, 110 125 Z" fill="#e02950"/>
+    <path d="M110 45 C 95 60, 100 85, 115 90 C 125 75, 122 55, 110 45 Z" fill="#b3123a"/>
+    <path d="M100 70 C 105 60, 118 60, 120 72" stroke="#8a0c2b" stroke-width="2" fill="none"/>
+  </svg>
+
+  <section class="poem">
+    <h2>Ode to a Rose</h2>
+
+    <p class="stanza">
+      In morning light a rose awakes,<br>
+      With dewdrops trembling on its face,<br>
+      Each crimson fold a promise makes<br>
+      Of quiet love and gentle grace.
+    </p>
+
+    <p class="stanza">
+      It does not ask the sun to stay,<br>
+      Nor begs the wind to pass it by;<br>
+      It simply blooms from day to day<br>
+      Beneath the wide and patient sky.
+    </p>
+
+    <p class="stanza">
+      Though thorns may guard its tender heart,<br>
+      Its fragrance travels far and free,<br>
+      A reminder, soft yet smart:<br>
+      True beauty grows with bravery.
+    </p>
+
+    <p class="stanza">
+      So when your days feel dim and grey,<br>
+      Remember how the roses do;<br>
+      They bloom, then fade, then find their way<br>
+      Back into spring, and so will you.
+    </p>
+
+    <p class="author">~ A poem for the rose</p>
+  </section>
+
+  <footer>Made with 🌹</footer>
+
+  <script>
+    // Gently falling rose petals
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = 6 + Math.random() * 6 + 's';
+      petal.style.background = Math.random() > 0.5 ? '#e8395f' : '#c8173f';
+      document.body.appendChild(petal);
+      setTimeout(() => petal.remove(), 12000);
+    }
+    setInterval(createPetal, 700);
+  </script>
+</body>
+</html>
