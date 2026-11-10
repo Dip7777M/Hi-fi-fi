@@ -1,273 +1,850 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Rose</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Lora:ital@0;1&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      min-height: 100vh;
-      font-family: 'Lora', Georgia, serif;
-      background: linear-gradient(160deg, #fff0f3 0%, #ffd6de 50%, #f7b6c2 100%);
-      background-attachment: fixed;
-      color: #4a1c26;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-      overflow-x: hidden;
-    }
-
-    h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: clamp(2.8rem, 8vw, 4.5rem);
-      color: #b3123a;
-      text-shadow: 2px 2px 0 #fff;
-      margin-bottom: 10px;
-    }
-
-    .subtitle {
-      font-style: italic;
-      color: #7a3a48;
-      margin-bottom: 30px;
-    }
-
-    .hero {
-      width: min(420px, 90vw);
-      aspect-ratio: 1;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 6px solid #fff;
-      box-shadow: 0 12px 40px rgba(140, 20, 50, 0.35);
-      animation: glow 4s ease-in-out infinite;
-    }
-
-    .hero img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.15);
-    }
-
-    @keyframes glow {
-      0%, 100% { box-shadow: 0 12px 40px rgba(140, 20, 50, 0.30); }
-      50%      { box-shadow: 0 12px 60px rgba(200, 23, 63, 0.55); }
-    }
-
-    .poem {
-      background: rgba(255, 255, 255, 0.8);
-      border-left: 5px solid #b3123a;
-      border-radius: 12px;
-      padding: 35px 45px;
-      margin-top: 40px;
-      max-width: 520px;
-      width: 100%;
-      box-shadow: 0 8px 30px rgba(140, 20, 50, 0.15);
-    }
-
-    h2 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 2.2rem;
-      color: #b3123a;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .stanza {
-      margin-bottom: 18px;
-      line-height: 1.8;
-      font-size: 1.1rem;
-    }
-
-    .author {
-      text-align: right;
-      font-style: italic;
-      color: #7a3a48;
-      margin-top: 10px;
-    }
-
-    .gallery-section {
-      margin-top: 50px;
-      max-width: 960px;
-      width: 100%;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-
-    .gallery figure {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(140, 20, 50, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .gallery figure:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 30px rgba(140, 20, 50, 0.3);
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .gallery figcaption {
-      padding: 12px 15px;
-      font-style: italic;
-      text-align: center;
-      color: #7a3a48;
-    }
-
-    .credits {
-      margin-top: 50px;
-      max-width: 720px;
-      font-size: 0.8rem;
-      color: #7a3a48;
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    .credits h3 { font-size: 0.95rem; margin-bottom: 6px; }
-    .credits a { color: #b3123a; }
-
-    .petal {
-      position: fixed;
-      top: -30px;
-      width: 14px;
-      height: 14px;
-      background: #e8395f;
-      border-radius: 0 50% 50% 50%;
-      opacity: 0.7;
-      pointer-events: none;
-      animation: fall linear forwards;
-      z-index: 10;
-    }
-
-    @keyframes fall {
-      to { transform: translateY(110vh) rotate(720deg); }
-    }
-
-    footer {
-      margin-top: 30px;
-      font-size: 0.9rem;
-      color: #7a3a48;
-    }
-  </style>
+  <title>The Rose · A Digital Rose Garden</title>
+  <meta name="description" content="An illustrated guide to roses: the genus Rosa, its history in India and the world, rose groups, anatomy, colours, care and a poem.">
+  <meta name="theme-color" content="#22060d">
+  <meta property="og:title" content="The Rose · A Digital Rose Garden">
+  <meta property="og:description" content="An illustrated guide to roses, with photographs, a bud-to-bloom illustration, care advice and a poem.">
+  <meta property="og:image" content="images/roses/red-rose-1600.webp">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:wght@400;600;700&family=Pinyon+Script&display=swap">
+  <link rel="preload" as="image" type="image/webp" imagesrcset="images/roses/red-rose-480.webp 480w, images/roses/red-rose-960.webp 960w, images/roses/red-rose-1600.webp 1600w, images/roses/red-rose-2400.webp 2400w" imagesizes="(max-width: 760px) 100vw, 64vw">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <h1>The Rose</h1>
-  <p class="subtitle">A flower of love, beauty and grace</p>
+  <!-- Reusable botanical line drawings -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="sprig" viewBox="0 0 220 40">
+        <path d="M10 20 H95 M125 20 H210" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path d="M110 8 c-6 4 -7 10 0 14 c7 -4 6 -10 0 -14 z M110 22 c-4 6 -12 7 -16 2 c5 -5 12 -5 16 -2 z M110 22 c4 6 12 7 16 2 c-5 -5 -12 -5 -16 -2 z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M70 20 c4 -7 10 -9 16 -6 c-3 6 -9 8 -16 6 z M150 20 c-4 -7 -10 -9 -16 -6 c3 6 9 8 16 6 z" fill="none" stroke="currentColor" stroke-width="1.1"/>
+      </symbol>
+      <symbol id="rose-mark" viewBox="0 0 32 32">
+        <path d="M16 6c-4 0-7 3-7 7 0 5 4 8 7 8s7-3 7-8c0-4-3-7-7-7z M16 9c-2 0-3.5 1.6-3.5 3.6S14 16 16 16s3.5-1.4 3.5-3.4S18 9 16 9z M16 21v8 M16 25c-3-2-6-2-8 0 2 2 5 2 8 0z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></symbol>
+      <symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z M16 8.5a5 5 0 0 1 0 7 M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-up" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="20" cy="20" r="7"/><path d="M20 4v5M20 31v5M4 20h5M31 20h5M8.7 8.7l3.5 3.5M27.8 27.8l3.5 3.5M8.7 31.3l3.5-3.5M27.8 12.2l3.5-3.5"/></g></symbol>
+      <symbol id="i-drop" viewBox="0 0 40 40"><path d="M20 5c-6 9-10 14-10 20a10 10 0 0 0 20 0c0-6-4-11-10-20z M15 26a5 5 0 0 0 5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-soil" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h32M20 22V10M20 14c-4-4-9-3-10 0 3 3 7 3 10 0zM20 12c3-4 8-4 9-1-3 3-6 3-9 1z"/><path d="M8 28h4M18 30h4M28 27h4M12 34h3M24 35h3"/></g></symbol>
+      <symbol id="i-shears" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="29" r="5"/><circle cx="29" cy="29" r="5"/><path d="M14 25L28 6M26 25L12 6"/></g></symbol>
+      <symbol id="i-feed" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 16h18l-2 18H10z"/><path d="M26 20h4a3 3 0 0 1 0 6h-5M12 16c0-5 3-9 5-9s5 4 5 9"/></g></symbol>
+      <symbol id="i-bug" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="20" cy="23" rx="7" ry="10"/><path d="M20 13v20M15 10l2 3M25 10l-2 3M13 19H7M13 25H6M13 30l-5 3M27 19h6M27 25h7M27 30l5 3"/></g></symbol>
+      <symbol id="i-scent" viewBox="0 0 40 40"><path d="M12 32c-4-6 4-8 0-14s4-8 0-14M20 32c-4-6 4-8 0-14s4-8 0-14M28 32c-4-6 4-8 0-14s4-8 0-14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+      <symbol id="i-flower" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><circle cx="20" cy="18" r="4"/><path d="M20 14c-2-6 2-9 4-8 3 2 0 6-4 8zM24 17c5-3 9 0 8 3-1 3-6 2-8-3zM22 22c4 4 2 9-1 9s-3-5 1-9zM18 22c-2 5-7 6-8 3s3-5 8-3zM16 17c-5-1-6-6-3-7 3-1 5 3 3 7z"/><path d="M20 22v14"/></g></symbol>
+      <symbol id="i-hip" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14c-7 0-10 6-10 12s5 9 10 9 10-3 10-9-3-12-10-12z"/><path d="M20 14l-3-6M20 14l3-6M20 14l-6-3M20 14l6-3M20 14V6"/></g></symbol>
+      <symbol id="i-bee" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="20" cy="24" rx="7" ry="9"/><path d="M13.5 21h13M13.5 26h13M20 15c-3-6-10-7-11-3s6 6 11 3zM20 15c3-6 10-7 11-3s-6 6-11 3zM18 15l-2-4M22 15l2-4"/></g></symbol>
+      <symbol id="i-garden" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 36V18a14 14 0 0 1 28 0v18"/><path d="M11 36V19a9 9 0 0 1 18 0v17"/><circle cx="9" cy="15" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="31" cy="15" r="2"/></g></symbol>
+      <symbol id="i-bottle" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h8v6l5 5v19a2 2 0 0 1-2 2H13a2 2 0 0 1-2-2V15l5-5z"/><path d="M11 22h18"/></g></symbol>
+      <symbol id="i-water" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14h20l-2 22H12z"/><path d="M14 22c2-2 4 2 6 0s4 2 6 0M20 4c-2 3-3 5-3 6a3 3 0 0 0 6 0c0-1-1-3-3-6z"/></g></symbol>
+      <symbol id="i-bowl" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20h30a15 13 0 0 1-30 0z"/><path d="M14 16c0-4 3-6 6-6s6 2 6 6M20 10V6"/></g></symbol>
+    </defs>
+  </svg>
 
-  <div class="hero">
-    <img src="images/red-rose.jpg" alt="A deep red rose on a black background">
-  </div>
+  <header class="site-header" id="site-header">
+    <nav class="nav container" aria-label="Main">
+      <a class="brand" href="#top"><svg aria-hidden="true"><use href="#rose-mark"/></svg>The Rose</a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#varieties">Varieties</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#care">Care</a></li>
+        <li><a href="#poem">Poem</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="icon-btn" id="sound-toggle" type="button" aria-expanded="false" aria-controls="sound-panel">
+          <svg aria-hidden="true"><use href="#i-sound"/></svg><span class="sound-label">Garden sounds</span><span class="visually-hidden sound-label-sr">Garden sounds</span>
+        </button>
+        <button class="icon-btn nav__toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">
+          <svg aria-hidden="true"><use href="#i-menu"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
 
-  <section class="poem">
-    <h2>Ode to a Rose</h2>
+  <section class="sound-panel" id="sound-panel" aria-labelledby="sound-title" hidden>
+    <h2 id="sound-title">Garden sounds</h2>
+    <p class="sound-panel__intro">Sound is off until you press Play. Nothing plays by itself.</p>
 
-    <p class="stanza">
-      In morning light a rose awakes,<br>
-      With dewdrops trembling on its face,<br>
-      Each crimson fold a promise makes<br>
-      Of quiet love and gentle grace.
-    </p>
-
-    <p class="stanza">
-      It does not ask the sun to stay,<br>
-      Nor begs the wind to pass it by;<br>
-      It simply blooms from day to day<br>
-      Beneath the wide and patient sky.
-    </p>
-
-    <p class="stanza">
-      Though thorns may guard its tender heart,<br>
-      Its fragrance travels far and free,<br>
-      A reminder, soft yet smart:<br>
-      True beauty grows with bravery.
-    </p>
-
-    <p class="stanza">
-      So when your days feel dim and grey,<br>
-      Remember how the roses do;<br>
-      They bloom, then fade, then find their way<br>
-      Back into spring, and so will you.
-    </p>
-
-    <p class="author">~ A poem for the rose</p>
-  </section>
-
-  <section class="gallery-section">
-    <h2>A Garden of Roses</h2>
-    <div class="gallery">
-      <figure>
-        <img src="images/lalbagh-rose.jpg" alt="Red rose at Lalbagh garden, Bangalore" loading="lazy">
-        <figcaption>Red rose, Lalbagh, Bangalore</figcaption>
-      </figure>
-      <figure>
-        <img src="images/dew-rose.jpg" alt="Two pink roses covered in raindrops" loading="lazy">
-        <figcaption>Pink roses with morning dew</figcaption>
-      </figure>
-      <figure>
-        <img src="images/yellow-rose.jpg" alt="Yellow rose in sunlight next to a bud" loading="lazy">
-        <figcaption>Yellow rose in sunlight</figcaption>
-      </figure>
-      <figure>
-        <img src="images/double-delight.jpg" alt="Cream rose with pink-edged petals" loading="lazy">
-        <figcaption>'Double Delight' rose</figcaption>
-      </figure>
-      <figure>
-        <img src="images/pink-rose.jpg" alt="Pink climbing rose in bloom" loading="lazy">
-        <figcaption>Pink climbing rose</figcaption>
-      </figure>
-      <figure>
-        <img src="images/exotic-sunset.jpg" alt="Pink rose in full bloom" loading="lazy">
-        <figcaption>'Exotic Sunset' rose</figcaption>
-      </figure>
+    <div class="sound-row">
+      <button class="play-btn" id="amb-play" type="button" aria-pressed="false" aria-describedby="amb-meta">
+        <svg aria-hidden="true"><use href="#i-play"/></svg><span>Play</span>
+      </button>
+      <span class="sound-row__title">Garden ambience</span>
+      <span class="sound-row__meta" id="amb-meta">Birdsong recording with a soft breeze made in your browser.</span>
+      <div class="volume">
+        <label for="amb-vol">Ambience volume</label>
+        <input type="range" id="amb-vol" min="0" max="100" value="50">
+      </div>
     </div>
+
+    <div class="sound-row">
+      <button class="play-btn" id="music-play" type="button" aria-pressed="false" aria-describedby="music-meta">
+        <svg aria-hidden="true"><use href="#i-play"/></svg><span>Play</span>
+      </button>
+      <span class="sound-row__title">Quiet piano</span>
+      <span class="sound-row__meta" id="music-meta">Erik Satie, <i>Gymnopédie No. 1</i> (public domain recording)</span>
+      <div class="volume">
+        <label for="music-vol">Music volume</label>
+        <input type="range" id="music-vol" min="0" max="100" value="40">
+      </div>
+    </div>
+
+    <div class="sound-panel__footer">
+      <button class="play-btn" id="mute-all" type="button" aria-pressed="false">Mute all</button>
+      <button class="play-btn" id="sound-close" type="button">Close</button>
+    </div>
+    <p class="sound-status" id="sound-status" role="status" aria-live="polite"></p>
+
+    <audio id="birds-audio" preload="none" loop>
+      <source src="audio/birdsong-garden.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="music-audio" preload="none" loop>
+      <source src="audio/satie-gymnopedie-1.mp3" type="audio/mpeg">
+    </audio>
   </section>
 
-  <section class="credits">
-    <h3>Photo credits (Wikimedia Commons)</h3>
-    <p>
-      <a href="https://commons.wikimedia.org/wiki/File:Red_rose_with_black_background.jpg">Red rose with black background</a> by Laitche, CC BY-SA 4.0 ·
-      <a href="https://commons.wikimedia.org/wiki/File:Rose_flower_at_the_Lalbaghgarden_Bangalore.jpg">Rose flower at the Lalbagh garden</a> by Rameshng, CC BY 3.0 ·
-      <a href="https://commons.wikimedia.org/wiki/File:Rose_flower_with_dew.jpg">Rose flower with dew</a> by Vijai Kumar K, CC BY-SA 4.0 ·
-      <a href="https://commons.wikimedia.org/wiki/File:Yellow_rose%E2%80%93IMG_6796_03.jpg">Yellow rose</a> by Kızıl, CC BY-SA 4.0 ·
-      <a href="https://commons.wikimedia.org/wiki/File:Rose_Double_Delight_(8262).jpg">Rose Double Delight</a> by Alexey V. Kurochkin, CC BY-SA 4.0 ·
-      <a href="https://commons.wikimedia.org/wiki/File:Pink_rose_bloom_of_a_climbing_rose_at_Boreham,_Essex,_England_1.jpg">Pink climbing rose, Boreham</a> by Acabashi, CC BY-SA 4.0 ·
-      <a href="https://commons.wikimedia.org/wiki/File:Rosa_%27Exotic_Sunset%27_(d.j.b).jpg">Rosa 'Exotic Sunset'</a> by Dominicus Johannes Bergsma, CC BY-SA 4.0
-    </p>
-    <p>
-      Licenses: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>,
-      <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. Photos resized to 960px.
-    </p>
-  </section>
+  <main id="main">
 
-  <footer>Made with 🌹</footer>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__media" id="hero-media">
+        <picture><source type="image/webp" srcset="images/roses/red-rose-480.webp 480w, images/roses/red-rose-960.webp 960w, images/roses/red-rose-1600.webp 1600w, images/roses/red-rose-2400.webp 2400w" sizes="(max-width: 760px) 100vw, 64vw"><img src="images/roses/red-rose-960.jpg" width="960" height="738" alt="A deep red rose in full bloom against a black background" loading="eager" fetchpriority="high" decoding="async"></picture>
+      </div>
+      <div class="container">
+        <div class="hero__content">
+          <p class="eyebrow">A digital rose garden</p>
+          <h1 id="hero-title"><span class="script-accent">welcome to</span>The Rose</h1>
+          <p class="hero__intro">Walk through a quiet garden of roses. Learn where they came from, how they grow, what their colours have come to mean, and how to care for one of your own.</p>
+          <div class="hero__actions">
+            <a class="btn btn--gold" href="#gallery">Explore the Garden</a>
+            <a class="btn btn--ghost" href="#about">Discover Roses</a>
+          </div>
+        </div>
+      </div>
+      <p class="hero__credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Red_rose_with_black_background.jpg">Laitche</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
+      <span class="hero__scroll" aria-hidden="true"></span>
+    </section>
 
-  <script>
-    // Gently falling rose petals
-    function createPetal() {
-      const petal = document.createElement('div');
-      petal.className = 'petal';
-      petal.style.left = Math.random() * 100 + 'vw';
-      petal.style.animationDuration = 6 + Math.random() * 6 + 's';
-      petal.style.background = Math.random() > 0.5 ? '#e8395f' : '#c8173f';
-      document.body.appendChild(petal);
-      setTimeout(() => petal.remove(), 12000);
-    }
-    setInterval(createPetal, 700);
-  </script>
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section section--ivory" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="split">
+          <div class="reveal">
+            <p class="eyebrow">Meet the rose</p>
+            <h2 id="about-title">A shrub of the genus <i>Rosa</i></h2>
+            <p class="lead">A rose is a woody, long-lived shrub in the genus <i>Rosa</i>. It belongs to the rose family, Rosaceae, a large plant family that also includes apples, pears, cherries, plums, almonds and strawberries.</p>
+            <p>Botanists do not agree on exactly how many wild rose species there are. Britannica says about 100; other botanical accounts count between 140 and 180. Most wild species come from Asia, with smaller numbers from Europe, North America and northwest Africa.</p>
+            <div class="stats">
+              <div class="stat"><strong>2,500+</strong><span>species in the rose family, Rosaceae</span></div>
+              <div class="stat"><strong>100–180</strong><span>wild <i>Rosa</i> species, depending on the source</span></div>
+              <div class="stat"><strong>Asia</strong><span>home of most wild rose species</span></div>
+            </div>
+            <p class="source-note">Sources: <a href="https://www.britannica.com/plant/Rosaceae">Britannica: Rosaceae</a>, <a href="https://www.britannica.com/topic/list-of-economically-important-members-of-the-family-Rosaceae-2001611">Britannica: useful members of Rosaceae</a>, <a href="https://en.wikipedia.org/wiki/Rose">Wikipedia: Rose</a>.</p>
+          </div>
+          <figure class="framed-wrap reveal" style="margin:0">
+            <div class="framed reveal-img">
+              <picture><source type="image/webp" srcset="images/roses/white-rose-480.webp 480w, images/roses/white-rose-960.webp 960w, images/roses/white-rose-1600.webp 1600w" sizes="(max-width: 860px) 90vw, 45vw"><img src="images/roses/white-rose-960.jpg" width="960" height="640" alt="A large white rose with ruffled petals in front of pink flowers" loading="lazy" decoding="async"></picture>
+            </div>
+            <figcaption class="figure-caption"><a href="https://commons.wikimedia.org/wiki/File:White-Rose-Sitia-Crete.jpg">White rose, Sitia, Crete</a> by Petro Stelte, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via Wikimedia Commons</figcaption>
+          </figure>
+        </div>
+
+        <div class="terms">
+          <article class="term reveal">
+            <h3>Species</h3>
+            <p>A wild rose, as it grows in nature. Species names are written in italics.</p>
+            <p class="example">Example: dog rose, <i>Rosa canina</i></p>
+          </article>
+          <article class="term reveal">
+            <h3>Hybrid</h3>
+            <p>A plant produced by crossing two different parents, often different species. Most garden roses today have hybrid ancestry.</p>
+            <p class="example">Example: damask rose, <i>Rosa</i> × <i>damascena</i></p>
+          </article>
+          <article class="term reveal">
+            <h3>Cultivar</h3>
+            <p>A named rose selected and kept going by people, usually from cuttings or grafting. Cultivar names go in single quotes.</p>
+            <p class="example">Example: <i>Rosa</i> 'Double Delight'</p>
+          </article>
+        </div>
+        <p class="source-note">Definition of a hybrid follows the <a href="https://www.rhs.org.uk/plants/popular/roses/growing-guide">RHS rose growing guide</a> glossary. The × in a name marks a hybrid.</p>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"><svg><use href="#sprig"/></svg></div>
+
+    <!-- ===================== HISTORY ===================== -->
+    <section class="section section--dark" id="history" aria-labelledby="history-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Origins &amp; history</p>
+          <h2 id="history-title">An old flower with a long story</h2>
+          <p class="lead">Roses grew wild long before people grew them in gardens. Over thousands of years they became part of art, religion, perfume and food in many cultures.</p>
+        </div>
+
+        <ol class="timeline reveal">
+          <li><span class="when">Tens of millions of years ago</span><p>The oldest known rose fossils come from the Florissant beds in Colorado, USA. Rose-like plants also appear in the fossil record of Europe and Asia.</p></li>
+          <li><span class="when">By about 500 BCE</span><p>Roses were being grown in gardens around the Mediterranean, in Persia and in China.</p></li>
+          <li><span class="when">1500s–1600s</span><p>The Mughal emperors brought the Persian-style <i>charbagh</i> garden to India. Emperor Jahangir wrote of a rose attar made at his court.</p></li>
+          <li><span class="when">1867</span><p>'La France', bred by Jean-Baptiste Guillot, became the first hybrid tea rose. Its arrival is often used to mark the start of "modern" roses.</p></li>
+          <li><span class="when">1967</span><p>The Zakir Hussain Rose Garden opened in Chandigarh. Chandigarh Tourism says it displays about 1,600 rose varieties.</p></li>
+          <li><span class="when">1986</span><p>The US Congress named the rose the national floral emblem of the United States.</p></li>
+        </ol>
+        <p class="source-note">Sources: <a href="https://en.wikipedia.org/wiki/Rose">Wikipedia: Rose</a>, <a href="https://www.worldhistory.org/article/2264/a-brief-history-of-the-rose/">World History Encyclopedia</a>, <a href="https://extension.illinois.edu/roses/roses-types">University of Illinois Extension</a>, <a href="https://chandigarhtourism.gov.in/gardens/rose">Chandigarh Tourism</a>, <a href="https://www.congress.gov/99/statute/STATUTE-100/STATUTE-100-Pg1128.pdf">Public Law 99-449</a>.</p>
+
+        <div class="india" id="india">
+          <div class="india__media reveal">
+            <div class="main reveal-img"><picture><source type="image/webp" srcset="images/roses/lalbagh-rose-480.webp 480w, images/roses/lalbagh-rose-960.webp 960w, images/roses/lalbagh-rose-1600.webp 1600w" sizes="(max-width: 860px) 90vw, 45vw"><img src="images/roses/lalbagh-rose-960.jpg" width="960" height="761" alt="A red rose with a raindrop resting on its lower petal, surrounded by green leaves" loading="lazy" decoding="async"></picture></div>
+            <div class="inset"><picture><source type="image/webp" srcset="images/roses/miniature-rose-lalbagh-480.webp 480w, images/roses/miniature-rose-lalbagh-960.webp 960w, images/roses/miniature-rose-lalbagh-1600.webp 1600w" sizes="(max-width: 860px) 40vw, 20vw"><img src="images/roses/miniature-rose-lalbagh-960.jpg" width="960" height="720" alt="Pots of small roses in pink, red, white and orange beside a sign reading &#x27;Miniature Roses&#x27;" loading="lazy" decoding="async"></picture></div>
+          </div>
+          <div class="reveal">
+            <p class="eyebrow">Roses in India</p>
+            <h3>Gardens, attar, rose water and gulkand</h3>
+            <ul>
+              <li><strong>Mughal gardens.</strong> Babur, founder of the Mughal Empire, started the tradition of formal four-part <i>charbagh</i> gardens in India, and his successors expanded it.</li>
+              <li><strong>Rose attar.</strong> In his memoirs, Emperor Jahangir credited the court's rose attar to Asmat Begum, mother of Empress Nur Jahan. A popular legend tells the story differently, crediting Nur Jahan herself.</li>
+              <li><strong>Kannauj.</strong> This city in Uttar Pradesh has made rose attar from fragrant damask roses for more than 400 years, using traditional distillation.</li>
+              <li><strong>Rajasthan.</strong> Roses are grown commercially in the Pushkar valley and around Haldighati.</li>
+              <li><strong>Gulkand.</strong> Petals of roses such as <i>Rosa</i> × <i>damascena</i> are used to make gulkand, a sweet rose-petal preserve.</li>
+              <li><strong>Public gardens.</strong> Rose gardens and flower shows draw large crowds, from Chandigarh's Zakir Hussain Rose Garden to Lalbagh in Bengaluru.</li>
+            </ul>
+            <p class="source-note">Sources: <a href="https://archive.org/download/LandRevenueAdministrationUnderTheMughals_201710/Gardens%20in%20Mughal%20India.pdf">Gardens in Mughal India (thesis)</a>, <a href="https://www.timesnownews.com/lifestyle/people/the-persian-mother-and-daughter-who-gave-the-mughal-court-its-signature-scent-article-154439277">Times Now</a>, <a href="https://www.nationalgeographic.com/travel/article/how-did-kannauj-become-a-perfume-capital">National Geographic</a>, <a href="http://researchjournal.co.in/online/IJCBM/IJCBM%203(1)/3_A-126-127.pdf">Int. J. Commerce &amp; Business Management</a>, <a href="https://jmaps.in/static/media/articles/pdf/Vol_46_2_2024_no_1.pdf">J. Medicinal &amp; Aromatic Plant Sciences</a>.</p>
+            <p class="figure-caption" style="color:#d9c9cc">Photos: <a href="https://commons.wikimedia.org/wiki/File:Rose_flower_at_the_Lalbaghgarden_Bangalore.jpg">Red rose in the rose garden at Lalbagh, Bengaluru</a> by Rameshng at Malayalam Wikipedia, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>, via Wikimedia Commons; <a href="https://commons.wikimedia.org/wiki/File:Miniature_rose_from_Lalbagh_Flowershow_-_August_2012_4744.JPG">Miniature roses at the Lalbagh Flower Show, Bengaluru, August 2012</a> by Rameshng, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, via Wikimedia Commons.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== VARIETIES ===================== -->
+    <section class="section section--blush" id="varieties" aria-labelledby="varieties-title">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">Main rose groups</p>
+          <h2 id="varieties-title">Find your kind of rose</h2>
+          <p class="lead" style="margin-inline:auto">The American Rose Society recognises more than 40 rose classes. Most gardeners only need to know a handful of them.</p>
+        </div>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card__media"><picture><source type="image/webp" srcset="images/roses/double-delight-480.webp 480w, images/roses/double-delight-960.webp 960w, images/roses/double-delight-1600.webp 1600w" sizes="(max-width: 620px) 90vw, (max-width: 980px) 45vw, 360px"><img src="images/roses/double-delight-960.jpg" width="960" height="960" alt="A cream rose whose petals are edged with deep pink" loading="lazy" decoding="async"></picture></div>
+            <div class="card__body">
+              <span class="card__tag">Modern rose</span>
+              <h3>Hybrid tea</h3>
+              <p>Long, pointed buds open into one large, shapely flower on a long stem. A favourite for cutting and for flower shows.</p>
+              <dl><dt>Flowers</dt><dd>Usually one per stem</dd><dt>Colours</dt><dd>Every colour except true blue and black</dd><dt>Since</dt><dd>1867, with 'La France'</dd></dl>
+              <p class="card__credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Rose_Double_Delight_(8262).jpg">Alexey V. Kurochkin</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card__media"><picture><source type="image/webp" srcset="images/roses/floribunda-tuscan-sun-480.webp 480w, images/roses/floribunda-tuscan-sun-960.webp 960w, images/roses/floribunda-tuscan-sun-1600.webp 1600w" sizes="(max-width: 620px) 90vw, (max-width: 980px) 45vw, 360px"><img src="images/roses/floribunda-tuscan-sun-960.jpg" width="960" height="640" alt="A soft apricot-orange rose with many petals" loading="lazy" decoding="async"></picture></div>
+            <div class="card__body">
+              <span class="card__tag">Modern rose</span>
+              <h3>Floribunda</h3>
+              <p>Bred by crossing polyantha roses with hybrid teas. Flowers come in clusters on compact plants, bred for hardiness and better disease resistance.</p>
+              <dl><dt>Flowers</dt><dd>In clusters</dd><dt>Good for</dt><dd>Beds and borders with lots of colour</dd></dl>
+              <p class="card__credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Rosa_floribunda_Tuscan_Sun_0zz.jpg">David J. Stang</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card__media"><picture><source type="image/webp" srcset="images/roses/shrub-knock-out-480.webp 480w, images/roses/shrub-knock-out-960.webp 960w, images/roses/shrub-knock-out-1600.webp 1600w" sizes="(max-width: 620px) 90vw, (max-width: 980px) 45vw, 360px"><img src="images/roses/shrub-knock-out-960.jpg" width="960" height="720" alt="A dense, leafy shrub rose covered in pink-red flowers beside a lawn" loading="lazy" decoding="async"></picture></div>
+            <div class="card__body">
+              <span class="card__tag">Modern rose</span>
+              <h3>Shrub</h3>
+              <p>A broad "catch-all" class for roses that do not fit elsewhere. Many are rounded, hardy, free-flowering and blend well into mixed borders and hedges.</p>
+              <dl><dt>Habit</dt><dd>Rounded, often wide</dd><dt>Good for</dt><dd>Low-fuss garden planting</dd></dl>
+              <p class="card__credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Rosa_%27Knock_Out%27,_Morris_Arboretum_01.jpg">Shuvaev</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card__media"><picture><source type="image/webp" srcset="images/roses/rose-arch-paris-480.webp 480w, images/roses/rose-arch-paris-960.webp 960w, images/roses/rose-arch-paris-1600.webp 1600w" sizes="(max-width: 620px) 90vw, (max-width: 980px) 45vw, 360px"><img src="images/roses/rose-arch-paris-960.jpg" width="960" height="720" alt="A garden path passing under metal arches covered in red and pink climbing roses" loading="lazy" decoding="async"></picture></div>
+            <div class="card__body">
+              <span class="card__tag">Climber</span>
+              <h3>Climbing</h3>
+              <p>Long, heavy canes that can be trained up walls, fences, arches and pillars. Climbers do not cling on their own, so they must be tied to a support.</p>
+              <dl><dt>Height</dt><dd>About 2.5–7.5 m (8–25 ft)</dd><dt>Flowers</dt><dd>Large, single or in clusters</dd></dl>
+              <p class="card__credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:All%C3%A9e_de_roses_Jardin_des_Plantes.JPG">Dinkum</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a></p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card__media"><picture><source type="image/webp" srcset="images/roses/miniature-rose-lalbagh-480.webp 480w, images/roses/miniature-rose-lalbagh-960.webp 960w, images/roses/miniature-rose-lalbagh-1600.webp 1600w" sizes="(max-width: 620px) 90vw, (max-width: 980px) 45vw, 360px"><img src="images/roses/miniature-rose-lalbagh-960.jpg" width="960" height="720" alt="Pots of small roses in pink, red, white and orange beside a sign reading &#x27;Miniature Roses&#x27;" loading="lazy" decoding="async"></picture></div>
+            <div class="card__body">
+              <span class="card__tag">Small rose</span>
+              <h3>Miniature</h3>
+              <p>Small bushes with small flowers, descended from a dwarf China rose called 'Rouletii'. Most flower again and again but have little or no scent.</p>
+              <dl><dt>Height</dt><dd>About 8–45 cm (3–18 in)</dd><dt>Good for</dt><dd>Pots, edges and balconies</dd></dl>
+              <p class="card__credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Miniature_rose_from_Lalbagh_Flowershow_-_August_2012_4744.JPG">Rameshng</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></p>
+            </div>
+          </article>
+          <article class="card reveal">
+            <div class="card__media"><picture><source type="image/webp" srcset="images/roses/bee-wild-rose-480.webp 480w, images/roses/bee-wild-rose-960.webp 960w, images/roses/bee-wild-rose-1600.webp 1600w" sizes="(max-width: 620px) 90vw, (max-width: 980px) 45vw, 360px"><img src="images/roses/bee-wild-rose-960.jpg" width="960" height="720" alt="A honey bee gathering pollen from the yellow centre of a pale pink wild rose" loading="lazy" decoding="async"></picture></div>
+            <div class="card__body">
+              <span class="card__tag">Wild rose</span>
+              <h3>Species roses</h3>
+              <p>Roses "as nature made them", growing wild across the Northern Hemisphere. Most have simple five-petalled flowers, and many form colourful hips.</p>
+              <dl><dt>Flowers</dt><dd>Usually five petals</dd><dt>Good for</dt><dd>Wildlife and natural hedges</dd></dl>
+              <p class="card__credit">Photo: <a href="https://commons.wikimedia.org/wiki/File:Honey_bee_(Apis_mellifera)_on_a_wild_rose_flower,_by_baby-bear.org.jpg">Natalka Ukraine</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+            </div>
+          </article>
+        </div>
+        <p class="source-note" style="text-align:center">Sources: <a href="https://extension.illinois.edu/roses/roses-types">University of Illinois Extension: Rose types</a>, <a href="https://libguides.nybg.org/classificationroses">NYBG: Classification of roses</a>, <a href="https://www.rhs.org.uk/plants/roses/pruning-guide">RHS rose pruning guide</a>. Cultivar names in captions come from the photographers' own labels.</p>
+      </div>
+    </section>
+
+    <!-- ===================== ANATOMY + BUD TO BLOOM ===================== -->
+    <section class="section section--ivory" id="anatomy" aria-labelledby="anatomy-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Rose anatomy</p>
+          <h2 id="anatomy-title">The parts of a rose</h2>
+          <p class="lead">This drawing shows a simple wild-type rose. Garden roses with many petals have the same parts, but their extra petals can hide the centre.</p>
+        </div>
+        <div class="anatomy">
+          <figure class="anatomy__figure reveal" style="margin:0">
+            <svg class="anatomy-svg" viewBox="0 0 800 600" role="img" aria-labelledby="anat-title anat-desc">
+<title id="anat-title">Labelled botanical drawing of a rose</title>
+<desc id="anat-desc">A five-petalled rose flower on a stem, with a bud, a compound leaf, prickles and an inset rose hip. Numbered markers point to: 1 petal, 2 stamens, 3 stigmas, 4 sepal, 5 hypanthium, 6 bud, 7 leaflet, 8 stipule, 9 prickle, 10 hip.</desc>
+<path class="ink-green" d="M360 312 C 363 380 355 450 360 585" stroke-width="6"/>
+<path class="ink-green" d="M361 372 C 420 360 500 330 556 300" stroke-width="4"/>
+<path d="M362 460 l14 -10 l-11 18 z" fill="#8a3b2e" stroke="#5a1024" stroke-width="1"/>
+<path d="M357 520 l-14 -10 l11 18 z" fill="#8a3b2e" stroke="#5a1024" stroke-width="1"/>
+<path d="M362 402 l14 -10 l-11 18 z" fill="#8a3b2e" stroke="#5a1024" stroke-width="1"/>
+<path d="M470 333 l6 -14 l4 12 z" fill="#8a3b2e" stroke="#5a1024" stroke-width="1"/>
+<path class="ink-green" d="M358 424 C 320 410 250 392 160 362" stroke-width="3"/>
+<path class="wash-green" d="M357 426 C 345 414 332 410 318 412 C 330 420 342 426 357 428 z"/>
+<path class="ink-green" d="M357 426 C 345 414 332 410 318 412 C 330 420 342 426 357 428 z" stroke-width="1.5"/>
+<g transform="translate(285 398) rotate(-88)"><path class="wash-green" d="M0 0 C 14 -10 16 -42 0 -60 C -16 -42 -14 -10 0 0 z"/><path class="ink-green" d="M0 0 C 14 -10 16 -42 0 -60 C -16 -42 -14 -10 0 0 z M0 -4 V -54" stroke-width="1.6"/></g>
+<g transform="translate(285 398) rotate(52)"><path class="wash-green" d="M0 0 C 14 -10 16 -42 0 -60 C -16 -42 -14 -10 0 0 z"/><path class="ink-green" d="M0 0 C 14 -10 16 -42 0 -60 C -16 -42 -14 -10 0 0 z M0 -4 V -54" stroke-width="1.6"/></g>
+<g transform="translate(225 380) rotate(-88)"><path class="wash-green" d="M0 0 C 14 -10 16 -42 0 -60 C -16 -42 -14 -10 0 0 z"/><path class="ink-green" d="M0 0 C 14 -10 16 -42 0 -60 C -16 -42 -14 -10 0 0 z M0 -4 V -54" stroke-width="1.6"/></g>
+<g transform="translate(225 380) rotate(52)"><path class="wash-green" d="M0 0 C 14 -10 16 -42 0 -60 C -16 -42 -14 -10 0 0 z"/><path class="ink-green" d="M0 0 C 14 -10 16 -42 0 -60 C -16 -42 -14 -10 0 0 z M0 -4 V -54" stroke-width="1.6"/></g>
+<g transform="translate(162 363) rotate(-108)"><path class="wash-green" d="M0 0 C 16 -12 18 -48 0 -68 C -18 -48 -16 -12 0 0 z"/><path class="ink-green" d="M0 0 C 16 -12 18 -48 0 -68 C -18 -48 -16 -12 0 0 z M0 -4 V -62" stroke-width="1.6"/></g>
+<g transform="translate(560 298) rotate(28)"><path class="wash-pink" d="M0 0 C -16 -10 -18 -40 0 -62 C 18 -40 16 -10 0 0 z" style="fill:#e28a9e"/><path class="ink" d="M0 0 C -16 -10 -18 -40 0 -62 C 18 -40 16 -10 0 0 z"/><path class="wash-green" d="M0 2 C -18 -6 -20 -30 -6 -52 C -8 -30 -4 -12 0 2 z M0 2 C 18 -6 20 -30 6 -52 C 8 -30 4 -12 0 2 z"/><path class="ink-green" d="M0 2 C -18 -6 -20 -30 -6 -52 M0 2 C 18 -6 20 -30 6 -52" stroke-width="1.5"/></g>
+<path class="wash-green" d="M336 262 C 330 292 344 314 360 316 C 376 314 390 292 384 262 z"/>
+<path class="ink-green" d="M336 262 C 330 292 344 314 360 316 C 376 314 390 292 384 262" stroke-width="2"/>
+<g transform="translate(360 190) scale(1 0.62)">
+<g transform="rotate(36)"><path class="wash-green" d="M0 0 C -12 -60 -8 -120 0 -165 C 8 -120 12 -60 0 0 z"/><path class="ink-green" d="M0 0 C -12 -60 -8 -120 0 -165 C 8 -120 12 -60 0 0 z" stroke-width="1.6"/></g>
+<g transform="rotate(108)"><path class="wash-green" d="M0 0 C -12 -60 -8 -120 0 -165 C 8 -120 12 -60 0 0 z"/><path class="ink-green" d="M0 0 C -12 -60 -8 -120 0 -165 C 8 -120 12 -60 0 0 z" stroke-width="1.6"/></g>
+<g transform="rotate(180)"><path class="wash-green" d="M0 0 C -12 -60 -8 -120 0 -165 C 8 -120 12 -60 0 0 z"/><path class="ink-green" d="M0 0 C -12 -60 -8 -120 0 -165 C 8 -120 12 -60 0 0 z" stroke-width="1.6"/></g>
+<g transform="rotate(252)"><path class="wash-green" d="M0 0 C -12 -60 -8 -120 0 -165 C 8 -120 12 -60 0 0 z"/><path class="ink-green" d="M0 0 C -12 -60 -8 -120 0 -165 C 8 -120 12 -60 0 0 z" stroke-width="1.6"/></g>
+<g transform="rotate(324)"><path class="wash-green" d="M0 0 C -12 -60 -8 -120 0 -165 C 8 -120 12 -60 0 0 z"/><path class="ink-green" d="M0 0 C -12 -60 -8 -120 0 -165 C 8 -120 12 -60 0 0 z" stroke-width="1.6"/></g>
+<g transform="rotate(0)"><path class="wash-pink" d="M0 0 C -78 -22 -92 -112 -34 -140 C -12 -150 12 -150 34 -140 C 92 -112 78 -22 0 0 z"/><path class="ink" d="M0 0 C -78 -22 -92 -112 -34 -140 C -12 -150 12 -150 34 -140 C 92 -112 78 -22 0 0 z"/><path class="ink" d="M0 -30 C -6 -70 -4 -100 0 -125 M-4 -60 C -20 -80 -30 -95 -38 -112 M4 -60 C 20 -80 30 -95 38 -112" stroke-width="1" opacity=".55"/></g>
+<g transform="rotate(72)"><path class="wash-pink" d="M0 0 C -78 -22 -92 -112 -34 -140 C -12 -150 12 -150 34 -140 C 92 -112 78 -22 0 0 z"/><path class="ink" d="M0 0 C -78 -22 -92 -112 -34 -140 C -12 -150 12 -150 34 -140 C 92 -112 78 -22 0 0 z"/><path class="ink" d="M0 -30 C -6 -70 -4 -100 0 -125 M-4 -60 C -20 -80 -30 -95 -38 -112 M4 -60 C 20 -80 30 -95 38 -112" stroke-width="1" opacity=".55"/></g>
+<g transform="rotate(144)"><path class="wash-pink" d="M0 0 C -78 -22 -92 -112 -34 -140 C -12 -150 12 -150 34 -140 C 92 -112 78 -22 0 0 z"/><path class="ink" d="M0 0 C -78 -22 -92 -112 -34 -140 C -12 -150 12 -150 34 -140 C 92 -112 78 -22 0 0 z"/><path class="ink" d="M0 -30 C -6 -70 -4 -100 0 -125 M-4 -60 C -20 -80 -30 -95 -38 -112 M4 -60 C 20 -80 30 -95 38 -112" stroke-width="1" opacity=".55"/></g>
+<g transform="rotate(216)"><path class="wash-pink" d="M0 0 C -78 -22 -92 -112 -34 -140 C -12 -150 12 -150 34 -140 C 92 -112 78 -22 0 0 z"/><path class="ink" d="M0 0 C -78 -22 -92 -112 -34 -140 C -12 -150 12 -150 34 -140 C 92 -112 78 -22 0 0 z"/><path class="ink" d="M0 -30 C -6 -70 -4 -100 0 -125 M-4 -60 C -20 -80 -30 -95 -38 -112 M4 -60 C 20 -80 30 -95 38 -112" stroke-width="1" opacity=".55"/></g>
+<g transform="rotate(288)"><path class="wash-pink" d="M0 0 C -78 -22 -92 -112 -34 -140 C -12 -150 12 -150 34 -140 C 92 -112 78 -22 0 0 z"/><path class="ink" d="M0 0 C -78 -22 -92 -112 -34 -140 C -12 -150 12 -150 34 -140 C 92 -112 78 -22 0 0 z"/><path class="ink" d="M0 -30 C -6 -70 -4 -100 0 -125 M-4 -60 C -20 -80 -30 -95 -38 -112 M4 -60 C 20 -80 30 -95 38 -112" stroke-width="1" opacity=".55"/></g>
+</g>
+<line x1="370.0" y1="190.0" x2="390.0" y2="190.0" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="390.0" cy="190.0" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="369.7" y1="191.6" x2="393.1" y2="195.3" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="393.1" cy="195.3" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="369.0" y1="193.0" x2="394.2" y2="201.5" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="394.2" cy="201.5" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="367.8" y1="194.4" x2="383.5" y2="203.1" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="383.5" cy="203.1" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="366.2" y1="195.5" x2="381.2" y2="208.6" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="381.2" cy="208.6" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="364.3" y1="196.3" x2="376.5" y2="214.0" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="376.5" cy="214.0" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="362.2" y1="196.8" x2="366.7" y2="210.5" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="366.7" cy="210.5" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="360.0" y1="197.0" x2="360.0" y2="213.8" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="360.0" cy="213.8" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="357.8" y1="196.8" x2="351.5" y2="215.9" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="351.5" cy="215.9" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="355.7" y1="196.3" x2="347.0" y2="208.9" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="347.0" cy="208.9" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="353.8" y1="195.5" x2="338.8" y2="208.6" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="338.8" cy="208.6" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="352.2" y1="194.4" x2="330.3" y2="206.6" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="330.3" cy="206.6" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="351.0" y1="193.0" x2="333.0" y2="199.1" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="333.0" cy="199.1" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="350.3" y1="191.6" x2="326.9" y2="195.3" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="326.9" cy="195.3" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="350.0" y1="190.0" x2="322.0" y2="190.0" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="322.0" cy="190.0" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="350.3" y1="188.4" x2="330.8" y2="185.3" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="330.8" cy="185.3" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="351.0" y1="187.0" x2="329.4" y2="179.7" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="329.4" cy="179.7" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="352.2" y1="185.6" x2="330.3" y2="173.4" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="330.3" cy="173.4" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="353.8" y1="184.5" x2="341.3" y2="173.6" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="341.3" cy="173.6" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="355.7" y1="183.7" x2="345.2" y2="168.6" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="345.2" cy="168.6" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="357.8" y1="183.2" x2="351.5" y2="164.1" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="351.5" cy="164.1" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="360.0" y1="183.0" x2="360.0" y2="169.0" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="360.0" cy="169.0" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="362.2" y1="183.2" x2="367.6" y2="166.8" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="367.6" cy="166.8" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="364.3" y1="183.7" x2="376.5" y2="166.0" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="376.5" cy="166.0" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="366.2" y1="184.5" x2="378.7" y2="173.6" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="378.7" cy="173.6" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="367.8" y1="185.6" x2="386.6" y2="175.2" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="386.6" cy="175.2" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="369.0" y1="187.0" x2="394.2" y2="178.5" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="394.2" cy="178.5" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<line x1="369.7" y1="188.4" x2="389.2" y2="185.3" stroke="#b8924a" stroke-width="1.4"/>
+<circle cx="389.2" cy="185.3" r="3.2" fill="#e8b93e" stroke="#9a7330" stroke-width=".8"/>
+<circle cx="360" cy="190" r="3.4" fill="#7a1631" stroke="#fff" stroke-width=".8"/>
+<circle cx="355" cy="187" r="3.4" fill="#7a1631" stroke="#fff" stroke-width=".8"/>
+<circle cx="365" cy="187" r="3.4" fill="#7a1631" stroke="#fff" stroke-width=".8"/>
+<circle cx="356" cy="194" r="3.4" fill="#7a1631" stroke="#fff" stroke-width=".8"/>
+<circle cx="364" cy="194" r="3.4" fill="#7a1631" stroke="#fff" stroke-width=".8"/>
+<circle cx="360" cy="184" r="3.4" fill="#7a1631" stroke="#fff" stroke-width=".8"/>
+<circle cx="645" cy="488" r="92" fill="#fffcf6" stroke="#b8924a" stroke-width="1.5"/>
+<text x="645" y="566" text-anchor="middle" font-size="14" fill="#5b4248" font-family="Nunito Sans, sans-serif">rose hip (fruit)</text>
+<g transform="translate(645 488)"><path class="ink-green" d="M0 -40 C 2 -55 -2 -66 0 -78" stroke-width="3"/><path class="wash-hip" d="M0 -38 C -30 -36 -36 0 -24 26 C -14 44 14 44 24 26 C 36 0 30 -36 0 -38 z"/><path class="ink" d="M0 -38 C -30 -36 -36 0 -24 26 C -14 44 14 44 24 26 C 36 0 30 -36 0 -38 z"/><path class="ink-green" d="M0 -38 l-16 -14 M0 -38 l16 -14 M0 -38 l-8 -20 M0 -38 l8 -20" stroke-width="2"/><path d="M-12 -6 C -10 -16 -2 -20 6 -18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".7"/></g>
+<path class="leader" d="M120 110 L245 160"/>
+<circle cx="245" cy="160" r="3" fill="#b8924a"/>
+<path class="leader" d="M480 52 L384 176"/>
+<circle cx="384" cy="176" r="3" fill="#b8924a"/>
+<path class="leader" d="M250 40 L356 186"/>
+<circle cx="356" cy="186" r="3" fill="#b8924a"/>
+<path class="leader" d="M610 96 L456 112"/>
+<circle cx="456" cy="112" r="3" fill="#b8924a"/>
+<path class="leader" d="M240 300 L336 288"/>
+<circle cx="336" cy="288" r="3" fill="#b8924a"/>
+<path class="leader" d="M660 228 L572 262"/>
+<circle cx="572" cy="262" r="3" fill="#b8924a"/>
+<path class="leader" d="M90 290 L200 352"/>
+<circle cx="200" cy="352" r="3" fill="#b8924a"/>
+<path class="leader" d="M250 470 L330 418"/>
+<circle cx="330" cy="418" r="3" fill="#b8924a"/>
+<path class="leader" d="M470 470 L372 462"/>
+<circle cx="372" cy="462" r="3" fill="#b8924a"/>
+<path class="leader" d="M735 395 L668 470"/>
+<circle cx="668" cy="470" r="3" fill="#b8924a"/>
+<g class="marker"><circle cx="120" cy="110" r="19"/><text x="120" y="110">1</text></g>
+<g class="marker"><circle cx="480" cy="52" r="19"/><text x="480" y="52">2</text></g>
+<g class="marker"><circle cx="250" cy="40" r="19"/><text x="250" y="40">3</text></g>
+<g class="marker"><circle cx="610" cy="96" r="19"/><text x="610" y="96">4</text></g>
+<g class="marker"><circle cx="240" cy="300" r="19"/><text x="240" y="300">5</text></g>
+<g class="marker"><circle cx="660" cy="228" r="19"/><text x="660" y="228">6</text></g>
+<g class="marker"><circle cx="90" cy="290" r="19"/><text x="90" y="290">7</text></g>
+<g class="marker"><circle cx="250" cy="470" r="19"/><text x="250" y="470">8</text></g>
+<g class="marker"><circle cx="470" cy="470" r="19"/><text x="470" y="470">9</text></g>
+<g class="marker"><circle cx="735" cy="395" r="19"/><text x="735" y="395">10</text></g>
+</svg>
+            <figcaption>Botanical illustration drawn for this site. Numbers match the list.</figcaption>
+          </figure>
+          <ol class="parts reveal" aria-label="Parts of a rose">
+            <li><span><strong>Petal.</strong> The coloured parts that attract pollinators. Most wild roses have five.</span></li>
+            <li><span><strong>Stamens.</strong> The male parts. Their tips, the anthers, hold the pollen.</span></li>
+            <li><span><strong>Stigmas.</strong> The female parts that receive pollen. The ovaries sit hidden below them.</span></li>
+            <li><span><strong>Sepal.</strong> Green, leaf-like flaps that protect the bud and fold back as it opens.</span></li>
+            <li><span><strong>Hypanthium.</strong> The cup-shaped base of the flower. After pollination it swells to become the hip.</span></li>
+            <li><span><strong>Bud.</strong> A flower that has not opened yet, wrapped in its sepals.</span></li>
+            <li><span><strong>Leaflet.</strong> Rose leaves are compound: usually 5 to 9 toothed leaflets share one leaf stalk.</span></li>
+            <li><span><strong>Stipule.</strong> A small, wing-like strip where the leaf stalk joins the stem.</span></li>
+            <li><span><strong>Prickle.</strong> What people call a "thorn". Botanically it is a prickle, an outgrowth of the stem's outer layer.</span></li>
+            <li><span><strong>Hip.</strong> The rose's fruit. Inside are many small, hard fruits called achenes, each holding one seed.</span></li>
+          </ol>
+        </div>
+        <p class="source-note">Sources: <a href="https://en.wikipedia.org/wiki/Rose">Wikipedia: Rose (description, flower and fruit)</a>, <a href="https://www.rhs.org.uk/plants/popular/roses/growing-guide">RHS rose growing guide</a>.</p>
+
+        <div class="bloom reveal" id="bloom">
+          <div class="bloom__stage">
+            <svg id="bloom-svg" viewBox="-200 -200 400 400" role="img" aria-labelledby="bloom-svg-title">
+              <title id="bloom-svg-title">Illustration of a rose seen from above, changing from a closed bud to a full bloom</title>
+            </svg>
+          </div>
+          <div class="bloom__control">
+            <p class="eyebrow">Interactive</p>
+            <h3>From bud to bloom</h3>
+            <p>Move the slider to open the rose. As the sepals fold back, the outer petals open first and the inner petals follow.</p>
+            <label for="bloom-range">Opening</label>
+            <input type="range" id="bloom-range" min="0" max="100" value="35" aria-describedby="bloom-stage">
+            <div class="bloom__ticks" aria-hidden="true"><span>Bud</span><span>Half open</span><span>Full bloom</span></div>
+            <p class="bloom__stage-name" id="bloom-stage" aria-live="polite">Petals unfurling</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== COLOURS ===================== -->
+    <section class="section section--blush" id="colours" aria-labelledby="colours-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Colours &amp; meanings</p>
+          <h2 id="colours-title">What rose colours are said to mean</h2>
+          <p class="lead">In the 1800s, Europeans and Americans used "floriography", the language of flowers, to send quiet messages with bouquets. Many rose meanings people use today come from those traditions.</p>
+        </div>
+        <div class="swatches">
+          <article class="swatch reveal" style="--dot:#b3123a">
+            <div class="swatch__chip"><picture><source type="image/webp" srcset="images/roses/lalbagh-rose-480.webp 480w, images/roses/lalbagh-rose-960.webp 960w, images/roses/lalbagh-rose-1600.webp 1600w" sizes="(max-width: 620px) 45vw, 230px"><img src="images/roses/lalbagh-rose-960.jpg" width="960" height="761" alt="A red rose with a raindrop resting on its lower petal, surrounded by green leaves" loading="lazy" decoding="async"></picture></div>
+            <div class="swatch__body"><h3>Red</h3><p>Love and passion</p></div>
+          </article>
+          <article class="swatch reveal" style="--dot:#f2a7b8">
+            <div class="swatch__chip"><picture><source type="image/webp" srcset="images/roses/dew-rose-480.webp 480w, images/roses/dew-rose-960.webp 960w, images/roses/dew-rose-1600.webp 1600w" sizes="(max-width: 620px) 45vw, 230px"><img src="images/roses/dew-rose-960.jpg" width="960" height="640" alt="Two pale pink roses covered in raindrops against a soft green background" loading="lazy" decoding="async"></picture></div>
+            <div class="swatch__body"><h3>Pink</h3><p>Grace, admiration and gratitude</p></div>
+          </article>
+          <article class="swatch reveal" style="--dot:#fbf6ee">
+            <div class="swatch__chip"><picture><source type="image/webp" srcset="images/roses/white-rose-480.webp 480w, images/roses/white-rose-960.webp 960w, images/roses/white-rose-1600.webp 1600w" sizes="(max-width: 620px) 45vw, 230px"><img src="images/roses/white-rose-960.jpg" width="960" height="640" alt="A large white rose with ruffled petals in front of pink flowers" loading="lazy" decoding="async"></picture></div>
+            <div class="swatch__body"><h3>White</h3><p>Innocence, purity and reverence</p></div>
+          </article>
+          <article class="swatch reveal" style="--dot:#f2c84b">
+            <div class="swatch__chip"><picture><source type="image/webp" srcset="images/roses/yellow-rose-480.webp 480w, images/roses/yellow-rose-960.webp 960w, images/roses/yellow-rose-1600.webp 1600w" sizes="(max-width: 620px) 45vw, 230px"><img src="images/roses/yellow-rose-960.jpg" width="960" height="640" alt="A yellow rose opening in low sunlight next to a small green bud" loading="lazy" decoding="async"></picture></div>
+            <div class="swatch__body"><h3>Yellow</h3><p>Friendship, gladness and joy</p></div>
+          </article>
+          <article class="swatch reveal" style="--dot:#ef8a4c">
+            <div class="swatch__chip"><picture><source type="image/webp" srcset="images/roses/orange-rose-pune-480.webp 480w, images/roses/orange-rose-pune-960.webp 960w, images/roses/orange-rose-pune-1600.webp 1600w" sizes="(max-width: 620px) 45vw, 230px"><img src="images/roses/orange-rose-pune-960.jpg" width="960" height="1280" alt="An orange rose and a bud among green leaves, growing in a pot" loading="lazy" decoding="async"></picture></div>
+            <div class="swatch__body"><h3>Orange</h3><p>No fixed traditional meaning. Modern sources disagree, so we haven't given one.</p></div>
+          </article>
+        </div>
+        <p class="notice reveal"><strong>Meanings change between cultures.</strong> These are traditional European and American associations. Other countries, religions and families may give the same colour a different meaning, or none at all. And no rose is naturally true blue.</p>
+        <p class="source-note">Sources: <a href="https://hgic.clemson.edu/the-secret-language-of-flowers-for-valentines-day/">Clemson Cooperative Extension: The secret language of flowers</a>, <a href="https://extension.illinois.edu/roses/roses-types">University of Illinois Extension</a>.</p>
+      </div>
+    </section>
+
+    <!-- ===================== NATURE ===================== -->
+    <section class="section section--green" id="nature" aria-labelledby="nature-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">In the garden</p>
+          <h2 id="nature-title">Fragrance, flowers, hips &amp; pollinators</h2>
+        </div>
+        <div class="nature">
+          <div class="nature__item reveal"><svg aria-hidden="true"><use href="#i-scent"/></svg><h3>Fragrance</h3><p>Rose scents differ. Some are fruity, others musky or "tea" scented. The RHS suggests smelling roses in bloom before you buy.</p></div>
+          <div class="nature__item reveal"><svg aria-hidden="true"><use href="#i-flower"/></svg><h3>Flowering</h3><p>Roses flower in summer, and many repeat into autumn. Removing faded flowers (deadheading) encourages more blooms.</p></div>
+          <div class="nature__item reveal"><svg aria-hidden="true"><use href="#i-hip"/></svg><h3>Rose hips</h3><p>If you don't deadhead, many roses form hips. These fruits feed birds such as thrushes and blackbirds in winter.</p></div>
+          <div class="nature__item reveal"><svg aria-hidden="true"><use href="#i-bee"/></svg><h3>Pollinators</h3><p>Roses are pollinated by insects. Bees reach the pollen of single, open flowers easily. Very full, double flowers can offer them little.</p></div>
+        </div>
+        <div class="nature__photos">
+          <figure class="reveal"><div class="ph reveal-img"><picture><source type="image/webp" srcset="images/roses/bee-wild-rose-480.webp 480w, images/roses/bee-wild-rose-960.webp 960w, images/roses/bee-wild-rose-1600.webp 1600w" sizes="(max-width: 640px) 90vw, 560px"><img src="images/roses/bee-wild-rose-960.jpg" width="960" height="720" alt="A honey bee gathering pollen from the yellow centre of a pale pink wild rose" loading="lazy" decoding="async"></picture></div><figcaption><a href="https://commons.wikimedia.org/wiki/File:Honey_bee_(Apis_mellifera)_on_a_wild_rose_flower,_by_baby-bear.org.jpg">Honey bee on a wild rose flower</a> by Natalka Ukraine, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, via Wikimedia Commons</figcaption></figure>
+          <figure class="reveal"><div class="ph reveal-img"><picture><source type="image/webp" srcset="images/roses/rose-hips-480.webp 480w, images/roses/rose-hips-960.webp 960w, images/roses/rose-hips-1600.webp 1600w" sizes="(max-width: 640px) 90vw, 560px"><img src="images/roses/rose-hips-960.jpg" width="960" height="661" alt="Bright red rose hips on bare branches against a clear blue sky" loading="lazy" decoding="async"></picture></div><figcaption><a href="https://commons.wikimedia.org/wiki/File:Rose_hips_in_autumn.jpg">Rose hips in autumn, identified by the photographer as dog rose (Rosa canina), Sweden</a> by W.carter, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>, via Wikimedia Commons</figcaption></figure>
+        </div>
+        <p class="source-note">Sources: <a href="https://www.rhs.org.uk/plants/popular/roses/growing-guide">RHS rose growing guide</a>, <a href="https://extension.oregonstate.edu/gardening/pollinators/less-showy-flower-petals-mean-more-pollinators">Oregon State University Extension</a>, <a href="https://en.wikipedia.org/wiki/Rose">Wikipedia: Rose</a>.</p>
+      </div>
+    </section>
+
+    <!-- ===================== GALLERY ===================== -->
+    <section class="section section--ivory" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">The garden</p>
+          <h2 id="gallery-title">A gallery of roses</h2>
+          <p class="lead" style="margin-inline:auto">Filter by colour, then select a photo to see it larger. Use the arrow keys to move between photos and Escape to close.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter photos by colour">
+          <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter" type="button" data-filter="red" aria-pressed="false" style="--dot:#b3123a"><span class="dot" aria-hidden="true"></span>Red</button>
+          <button class="filter" type="button" data-filter="pink" aria-pressed="false" style="--dot:#f2a7b8"><span class="dot" aria-hidden="true"></span>Pink</button>
+          <button class="filter" type="button" data-filter="white" aria-pressed="false" style="--dot:#fffcf6"><span class="dot" aria-hidden="true"></span>White</button>
+          <button class="filter" type="button" data-filter="yellow" aria-pressed="false" style="--dot:#f2c84b"><span class="dot" aria-hidden="true"></span>Yellow</button>
+          <button class="filter" type="button" data-filter="orange" aria-pressed="false" style="--dot:#ef8a4c"><span class="dot" aria-hidden="true"></span>Orange</button>
+          <button class="filter" type="button" data-filter="garden" aria-pressed="false" style="--dot:#3c6e55"><span class="dot" aria-hidden="true"></span>Gardens</button>
+        </div>
+        <p class="gallery-count" id="gallery-count" role="status" aria-live="polite">Showing all 15 photos</p>
+        <ul class="gallery" id="gallery-list">
+          <li data-tags="red"><button type="button" data-key="red-rose" data-caption="Red hybrid tea rose, identified by the photographer as &#x27;Kardinal&#x27;" data-credit="Photo: Laitche, CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Red_rose_with_black_background.jpg" data-license="https://creativecommons.org/licenses/by-sa/4.0/" data-full="images/roses/red-rose-1600.webp" data-fallback="images/roses/red-rose-960.jpg" aria-label="View larger: Red hybrid tea rose, identified by the photographer as &#x27;Kardinal&#x27;"><picture><source type="image/webp" srcset="images/roses/red-rose-480.webp 480w, images/roses/red-rose-960.webp 960w, images/roses/red-rose-1600.webp 1600w, images/roses/red-rose-2400.webp 2400w" sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 380px"><img src="images/roses/red-rose-960.jpg" width="960" height="738" alt="A deep red rose in full bloom against a black background" loading="lazy" decoding="async"></picture><span class="cap" aria-hidden="true">Red hybrid tea rose, identified by the photographer as &#x27;Kardinal&#x27;</span></button></li>
+          <li data-tags="pink"><button type="button" data-key="dew-rose" data-caption="Pale pink roses after rain" data-credit="Photo: Vijai Kumar K, CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Rose_flower_with_dew.jpg" data-license="https://creativecommons.org/licenses/by-sa/4.0/" data-full="images/roses/dew-rose-1600.webp" data-fallback="images/roses/dew-rose-960.jpg" aria-label="View larger: Pale pink roses after rain"><picture><source type="image/webp" srcset="images/roses/dew-rose-480.webp 480w, images/roses/dew-rose-960.webp 960w, images/roses/dew-rose-1600.webp 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 380px"><img src="images/roses/dew-rose-960.jpg" width="960" height="640" alt="Two pale pink roses covered in raindrops against a soft green background" loading="lazy" decoding="async"></picture><span class="cap" aria-hidden="true">Pale pink roses after rain</span></button></li>
+          <li data-tags="white"><button type="button" data-key="white-rose" data-caption="White rose, Sitia, Crete" data-credit="Photo: Petro Stelte, CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:White-Rose-Sitia-Crete.jpg" data-license="https://creativecommons.org/licenses/by-sa/4.0/" data-full="images/roses/white-rose-1600.webp" data-fallback="images/roses/white-rose-960.jpg" aria-label="View larger: White rose, Sitia, Crete"><picture><source type="image/webp" srcset="images/roses/white-rose-480.webp 480w, images/roses/white-rose-960.webp 960w, images/roses/white-rose-1600.webp 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 380px"><img src="images/roses/white-rose-960.jpg" width="960" height="640" alt="A large white rose with ruffled petals in front of pink flowers" loading="lazy" decoding="async"></picture><span class="cap" aria-hidden="true">White rose, Sitia, Crete</span></button></li>
+          <li data-tags="garden red"><button type="button" data-key="rose-arch-paris" data-caption="Rose arches at the Jardin des Plantes, Paris" data-credit="Photo: Dinkum, CC0" data-page="https://commons.wikimedia.org/wiki/File:All%C3%A9e_de_roses_Jardin_des_Plantes.JPG" data-license="https://creativecommons.org/publicdomain/zero/1.0/" data-full="images/roses/rose-arch-paris-1600.webp" data-fallback="images/roses/rose-arch-paris-960.jpg" aria-label="View larger: Rose arches at the Jardin des Plantes, Paris"><picture><source type="image/webp" srcset="images/roses/rose-arch-paris-480.webp 480w, images/roses/rose-arch-paris-960.webp 960w, images/roses/rose-arch-paris-1600.webp 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 380px"><img src="images/roses/rose-arch-paris-960.jpg" width="960" height="720" alt="A garden path passing under metal arches covered in red and pink climbing roses" loading="lazy" decoding="async"></picture><span class="cap" aria-hidden="true">Rose arches at the Jardin des Plantes, Paris</span></button></li>
+          <li data-tags="yellow"><button type="button" data-key="yellow-rose" data-caption="Yellow rose with a bud, Turkey" data-credit="Photo: Kızıl, CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Yellow_rose%E2%80%93IMG_6796_03.jpg" data-license="https://creativecommons.org/licenses/by-sa/4.0/" data-full="images/roses/yellow-rose-1600.webp" data-fallback="images/roses/yellow-rose-960.jpg" aria-label="View larger: Yellow rose with a bud, Turkey"><picture><source type="image/webp" srcset="images/roses/yellow-rose-480.webp 480w, images/roses/yellow-rose-960.webp 960w, images/roses/yellow-rose-1600.webp 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 380px"><img src="images/roses/yellow-rose-960.jpg" width="960" height="640" alt="A yellow rose opening in low sunlight next to a small green bud" loading="lazy" decoding="async"></picture><span class="cap" aria-hidden="true">Yellow rose with a bud, Turkey</span></button></li>
+          <li data-tags="red"><button type="button" data-key="lalbagh-rose" data-caption="Red rose in the rose garden at Lalbagh, Bengaluru" data-credit="Photo: Rameshng at Malayalam Wikipedia, CC BY 3.0" data-page="https://commons.wikimedia.org/wiki/File:Rose_flower_at_the_Lalbaghgarden_Bangalore.jpg" data-license="https://creativecommons.org/licenses/by/3.0/" data-full="images/roses/lalbagh-rose-1600.webp" data-fallback="images/roses/lalbagh-rose-960.jpg" aria-label="View larger: Red rose in the rose garden at Lalbagh, Bengaluru"><picture><source type="image/webp" srcset="images/roses/lalbagh-rose-480.webp 480w, images/roses/lalbagh-rose-960.webp 960w, images/roses/lalbagh-rose-1600.webp 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 380px"><img src="images/roses/lalbagh-rose-960.jpg" width="960" height="761" alt="A red rose with a raindrop resting on its lower petal, surrounded by green leaves" loading="lazy" decoding="async"></picture><span class="cap" aria-hidden="true">Red rose in the rose garden at Lalbagh, Bengaluru</span></button></li>
+          <li data-tags="orange"><button type="button" data-key="orange-rose-pune" data-caption="Orange rose in Pune" data-credit="Photo: Katharva, CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:Orange_Rose_Flower_in_Pune.jpg" data-license="https://creativecommons.org/licenses/by-sa/3.0/" data-full="images/roses/orange-rose-pune-1600.webp" data-fallback="images/roses/orange-rose-pune-960.jpg" aria-label="View larger: Orange rose in Pune"><picture><source type="image/webp" srcset="images/roses/orange-rose-pune-480.webp 480w, images/roses/orange-rose-pune-960.webp 960w, images/roses/orange-rose-pune-1600.webp 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 380px"><img src="images/roses/orange-rose-pune-960.jpg" width="960" height="1280" alt="An orange rose and a bud among green leaves, growing in a pot" loading="lazy" decoding="async"></picture><span class="cap" aria-hidden="true">Orange rose in Pune</span></button></li>
+          <li data-tags="pink"><button type="button" data-key="pink-climbing-rose" data-caption="Bloom of a pink climbing rose, Boreham, Essex, England" data-credit="Photo: Acabashi, CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Pink_rose_bloom_of_a_climbing_rose_at_Boreham,_Essex,_England_1.jpg" data-license="https://creativecommons.org/licenses/by-sa/4.0/" data-full="images/roses/pink-climbing-rose-1600.webp" data-fallback="images/roses/pink-climbing-rose-960.jpg" aria-label="View larger: Bloom of a pink climbing rose, Boreham, Essex, England"><picture><source type="image/webp" srcset="images/roses/pink-climbing-rose-480.webp 480w, images/roses/pink-climbing-rose-960.webp 960w, images/roses/pink-climbing-rose-1600.webp 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 380px"><img src="images/roses/pink-climbing-rose-960.jpg" width="960" height="960" alt="A soft pink, many-petalled rose bloom with a golden centre, among green leaves" loading="lazy" decoding="async"></picture><span class="cap" aria-hidden="true">Bloom of a pink climbing rose, Boreham, Essex, England</span></button></li>
+          <li data-tags="garden"><button type="button" data-key="rose-garden-arches" data-caption="Arches of climbing roses, Owen Memorial Rose Garden, Eugene, Oregon" data-credit="Photo: Rick Obst, CC BY 4.0" data-page="https://commons.wikimedia.org/wiki/File:Arches_with_climbing_roses_in_Owen_Memorial_Rose_Garden.jpg" data-license="https://creativecommons.org/licenses/by/4.0/" data-full="images/roses/rose-garden-arches-1600.webp" data-fallback="images/roses/rose-garden-arches-960.jpg" aria-label="View larger: Arches of climbing roses, Owen Memorial Rose Garden, Eugene, Oregon"><picture><source type="image/webp" srcset="images/roses/rose-garden-arches-480.webp 480w, images/roses/rose-garden-arches-960.webp 960w, images/roses/rose-garden-arches-1600.webp 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 380px"><img src="images/roses/rose-garden-arches-960.jpg" width="960" height="720" alt="A paved walkway under long green arches of climbing roses, with benches along the sides" loading="lazy" decoding="async"></picture><span class="cap" aria-hidden="true">Arches of climbing roses, Owen Memorial Rose Garden, Eugene, Oregon</span></button></li>
+          <li data-tags="pink white"><button type="button" data-key="double-delight" data-caption="Rose labelled &#x27;Double Delight&#x27; by the photographer, a hybrid tea cultivar" data-credit="Photo: Alexey V. Kurochkin, CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Rose_Double_Delight_(8262).jpg" data-license="https://creativecommons.org/licenses/by-sa/4.0/" data-full="images/roses/double-delight-1600.webp" data-fallback="images/roses/double-delight-960.jpg" aria-label="View larger: Rose labelled &#x27;Double Delight&#x27; by the photographer, a hybrid tea cultivar"><picture><source type="image/webp" srcset="images/roses/double-delight-480.webp 480w, images/roses/double-delight-960.webp 960w, images/roses/double-delight-1600.webp 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 380px"><img src="images/roses/double-delight-960.jpg" width="960" height="960" alt="A cream rose whose petals are edged with deep pink" loading="lazy" decoding="async"></picture><span class="cap" aria-hidden="true">Rose labelled &#x27;Double Delight&#x27; by the photographer, a hybrid tea cultivar</span></button></li>
+          <li data-tags="orange yellow"><button type="button" data-key="floribunda-tuscan-sun" data-caption="Floribunda rose labelled &#x27;Tuscan Sun&#x27; by the photographer" data-credit="Photo: David J. Stang, CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Rosa_floribunda_Tuscan_Sun_0zz.jpg" data-license="https://creativecommons.org/licenses/by-sa/4.0/" data-full="images/roses/floribunda-tuscan-sun-1600.webp" data-fallback="images/roses/floribunda-tuscan-sun-960.jpg" aria-label="View larger: Floribunda rose labelled &#x27;Tuscan Sun&#x27; by the photographer"><picture><source type="image/webp" srcset="images/roses/floribunda-tuscan-sun-480.webp 480w, images/roses/floribunda-tuscan-sun-960.webp 960w, images/roses/floribunda-tuscan-sun-1600.webp 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 380px"><img src="images/roses/floribunda-tuscan-sun-960.jpg" width="960" height="640" alt="A soft apricot-orange rose with many petals" loading="lazy" decoding="async"></picture><span class="cap" aria-hidden="true">Floribunda rose labelled &#x27;Tuscan Sun&#x27; by the photographer</span></button></li>
+          <li data-tags="pink"><button type="button" data-key="bee-wild-rose" data-caption="Honey bee on a wild rose flower" data-credit="Photo: Natalka Ukraine, CC BY 4.0" data-page="https://commons.wikimedia.org/wiki/File:Honey_bee_(Apis_mellifera)_on_a_wild_rose_flower,_by_baby-bear.org.jpg" data-license="https://creativecommons.org/licenses/by/4.0/" data-full="images/roses/bee-wild-rose-1600.webp" data-fallback="images/roses/bee-wild-rose-960.jpg" aria-label="View larger: Honey bee on a wild rose flower"><picture><source type="image/webp" srcset="images/roses/bee-wild-rose-480.webp 480w, images/roses/bee-wild-rose-960.webp 960w, images/roses/bee-wild-rose-1600.webp 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 380px"><img src="images/roses/bee-wild-rose-960.jpg" width="960" height="720" alt="A honey bee gathering pollen from the yellow centre of a pale pink wild rose" loading="lazy" decoding="async"></picture><span class="cap" aria-hidden="true">Honey bee on a wild rose flower</span></button></li>
+          <li data-tags="garden pink"><button type="button" data-key="miniature-rose-lalbagh" data-caption="Miniature roses at the Lalbagh Flower Show, Bengaluru, August 2012" data-credit="Photo: Rameshng, CC BY-SA 3.0" data-page="https://commons.wikimedia.org/wiki/File:Miniature_rose_from_Lalbagh_Flowershow_-_August_2012_4744.JPG" data-license="https://creativecommons.org/licenses/by-sa/3.0/" data-full="images/roses/miniature-rose-lalbagh-1600.webp" data-fallback="images/roses/miniature-rose-lalbagh-960.jpg" aria-label="View larger: Miniature roses at the Lalbagh Flower Show, Bengaluru, August 2012"><picture><source type="image/webp" srcset="images/roses/miniature-rose-lalbagh-480.webp 480w, images/roses/miniature-rose-lalbagh-960.webp 960w, images/roses/miniature-rose-lalbagh-1600.webp 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 380px"><img src="images/roses/miniature-rose-lalbagh-960.jpg" width="960" height="720" alt="Pots of small roses in pink, red, white and orange beside a sign reading &#x27;Miniature Roses&#x27;" loading="lazy" decoding="async"></picture><span class="cap" aria-hidden="true">Miniature roses at the Lalbagh Flower Show, Bengaluru, August 2012</span></button></li>
+          <li data-tags="garden pink"><button type="button" data-key="shrub-knock-out" data-caption="Shrub rose labelled &#x27;Knock Out&#x27;, Morris Arboretum, Philadelphia" data-credit="Photo: Shuvaev, CC BY-SA 4.0" data-page="https://commons.wikimedia.org/wiki/File:Rosa_%27Knock_Out%27,_Morris_Arboretum_01.jpg" data-license="https://creativecommons.org/licenses/by-sa/4.0/" data-full="images/roses/shrub-knock-out-1600.webp" data-fallback="images/roses/shrub-knock-out-960.jpg" aria-label="View larger: Shrub rose labelled &#x27;Knock Out&#x27;, Morris Arboretum, Philadelphia"><picture><source type="image/webp" srcset="images/roses/shrub-knock-out-480.webp 480w, images/roses/shrub-knock-out-960.webp 960w, images/roses/shrub-knock-out-1600.webp 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 380px"><img src="images/roses/shrub-knock-out-960.jpg" width="960" height="720" alt="A dense, leafy shrub rose covered in pink-red flowers beside a lawn" loading="lazy" decoding="async"></picture><span class="cap" aria-hidden="true">Shrub rose labelled &#x27;Knock Out&#x27;, Morris Arboretum, Philadelphia</span></button></li>
+          <li data-tags="red garden"><button type="button" data-key="rose-hips" data-caption="Rose hips in autumn, identified by the photographer as dog rose (Rosa canina), Sweden" data-credit="Photo: W.carter, CC0" data-page="https://commons.wikimedia.org/wiki/File:Rose_hips_in_autumn.jpg" data-license="https://creativecommons.org/publicdomain/zero/1.0/" data-full="images/roses/rose-hips-1600.webp" data-fallback="images/roses/rose-hips-960.jpg" aria-label="View larger: Rose hips in autumn, identified by the photographer as dog rose (Rosa canina), Sweden"><picture><source type="image/webp" srcset="images/roses/rose-hips-480.webp 480w, images/roses/rose-hips-960.webp 960w, images/roses/rose-hips-1600.webp 1600w" sizes="(max-width: 640px) 92vw, (max-width: 1000px) 46vw, 380px"><img src="images/roses/rose-hips-960.jpg" width="960" height="661" alt="Bright red rose hips on bare branches against a clear blue sky" loading="lazy" decoding="async"></picture><span class="cap" aria-hidden="true">Rose hips in autumn, identified by the photographer as dog rose (Rosa canina), Sweden</span></button></li>
+        </ul>
+      </div>
+    </section>
+
+    <dialog class="lightbox" id="lightbox" aria-labelledby="lb-title">
+      <div class="lightbox__top">
+        <span class="lightbox__counter" id="lb-counter"></span>
+        <button class="lb-btn" id="lb-close" type="button" aria-label="Close photo viewer"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <div class="lightbox__stage" id="lb-stage">
+        <picture id="lb-picture"><source id="lb-source" type="image/webp"><img id="lb-img" alt=""></picture>
+        <button class="lb-btn lb-prev" id="lb-prev" type="button" aria-label="Previous photo"><svg aria-hidden="true"><use href="#i-left"/></svg></button>
+        <button class="lb-btn lb-next" id="lb-next" type="button" aria-label="Next photo"><svg aria-hidden="true"><use href="#i-right"/></svg></button>
+      </div>
+      <div class="lightbox__caption">
+        <p class="title" id="lb-title"></p>
+        <p class="credit" id="lb-credit"></p>
+      </div>
+    </dialog>
+
+    <!-- ===================== CARE ===================== -->
+    <section class="section section--blush" id="care" aria-labelledby="care-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Growing roses</p>
+          <h2 id="care-title">How to care for a rose</h2>
+          <p class="lead">Roses are not hard to grow when they are planted in the right place. The basics below are general. Timing and amounts change with your climate and the kind of rose, so check local advice too.</p>
+        </div>
+        <div class="care-grid">
+          <article class="care reveal">
+            <div class="care__head"><svg aria-hidden="true"><use href="#i-sun"/></svg><h3>Sunlight</h3></div>
+            <p>Plant in a sunny spot with at least four hours of sun a day. Avoid very exposed, windy sites, and leave about 60 cm around each plant.</p>
+            <p class="varies">Varies: some roses cope with light shade. Roses in pots do better if the pot itself is shaded for part of the day.</p>
+          </article>
+          <article class="care reveal">
+            <div class="care__head"><svg aria-hidden="true"><use href="#i-drop"/></svg><h3>Watering</h3></div>
+            <p>Water new roses regularly until they settle in. For established roses in dry spells, give a good soak about once a week (5–10 litres per plant). Water the soil, not the leaves.</p>
+            <p class="varies">Varies: roses in pots may need water daily in hot weather; sandy soils dry out faster.</p>
+          </article>
+          <article class="care reveal">
+            <div class="care__head"><svg aria-hidden="true"><use href="#i-soil"/></svg><h3>Soil &amp; drainage</h3></div>
+            <p>Roses like rich soil that holds moisture but drains freely. They dislike waterlogged ground. If you are replacing an old rose, take steps to avoid replant disease.</p>
+            <p class="varies">Varies: heavy clay and very sandy soils both benefit from added organic matter.</p>
+          </article>
+          <article class="care reveal">
+            <div class="care__head"><svg aria-hidden="true"><use href="#i-shears"/></svg><h3>Pruning</h3></div>
+            <p>Prune once a year to remove dead, diseased or damaged shoots and to open up the centre for air. Different rose types need different pruning.</p>
+            <p class="varies">Varies: the RHS suggests late winter in the UK. TNAU recommends March and October for cut roses in Tamil Nadu.</p>
+          </article>
+          <article class="care reveal">
+            <div class="care__head"><svg aria-hidden="true"><use href="#i-feed"/></svg><h3>Feeding</h3></div>
+            <p>Mulch with well-rotted manure or compost, leaving a 10 cm gap around the stems. Feed in-ground roses twice a year: before flowering and after the first flush.</p>
+            <p class="varies">Varies: roses in pots need feeding about every two weeks in the growing season.</p>
+          </article>
+          <article class="care reveal">
+            <div class="care__head"><svg aria-hidden="true"><use href="#i-bug"/></svg><h3>Common problems</h3></div>
+            <p>Watch for black spot (dark spots and yellowing leaves), powdery mildew (white powder), rust (orange pustules) and aphids. Good air flow and clearing fallen leaves help.</p>
+            <p class="varies">Varies: some cultivars resist disease far better than others, and wet weather favours black spot.</p>
+          </article>
+        </div>
+        <p class="source-note">Sources: <a href="https://www.rhs.org.uk/plants/popular/roses/growing-guide">RHS rose growing guide</a>, <a href="https://www.rhs.org.uk/plants/roses/pruning-guide">RHS pruning guide</a>, <a href="https://www.rhs.org.uk/disease/rose-powdery-mildew">RHS: powdery mildew</a>, <a href="https://www.rhs.org.uk/plants/roses/growing-in-containers">RHS: roses in containers</a>, <a href="https://extension.oregonstate.edu/sites/extd8/files/documents/ec1520.pdf">Oregon State University: rose problems (EC 1520)</a>, <a href="https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_cut%20rose.html">TNAU Agritech: cut rose</a>.</p>
+
+        <div class="seasons reveal">
+          <h3>Seasonal care guide</h3>
+          <p>This guide uses temperate seasons, as in the UK. In warm climates such as much of India the seasons are different, so ask a local nursery or agricultural university when to prune and feed.</p>
+          <div class="tabs" role="tablist" aria-label="Seasons">
+            <button class="tab" role="tab" type="button" id="tab-spring" aria-controls="panel-spring" aria-selected="true">Spring</button>
+            <button class="tab" role="tab" type="button" id="tab-summer" aria-controls="panel-summer" aria-selected="false" tabindex="-1">Summer</button>
+            <button class="tab" role="tab" type="button" id="tab-autumn" aria-controls="panel-autumn" aria-selected="false" tabindex="-1">Autumn</button>
+            <button class="tab" role="tab" type="button" id="tab-winter" aria-controls="panel-winter" aria-selected="false" tabindex="-1">Winter</button>
+          </div>
+          <div class="tabpanel" role="tabpanel" id="panel-spring" aria-labelledby="tab-spring" tabindex="0">
+            <div><h3>Jobs</h3><ul><li>Give the first feed before flowering (March/April in the UK).</li><li>Spread a thick mulch to keep weeds down.</li><li>Take softwood cuttings in early to mid spring.</li></ul></div>
+            <div><h3>Watch for</h3><ul><li>Aphids on soft new shoots.</li><li>First signs of black spot on leaves.</li></ul></div>
+          </div>
+          <div class="tabpanel" role="tabpanel" id="panel-summer" aria-labelledby="tab-summer" tabindex="0" hidden>
+            <div><h3>Jobs</h3><ul><li>Deadhead about once a week.</li><li>Water deeply during dry spells.</li><li>Feed again after the first flush of flowers.</li></ul></div>
+            <div><h3>Watch for</h3><ul><li>Powdery mildew, especially when roots are dry.</li><li>Wilting in pots. Water at once if leaves droop.</li></ul></div>
+          </div>
+          <div class="tabpanel" role="tabpanel" id="panel-autumn" aria-labelledby="tab-autumn" tabindex="0" hidden>
+            <div><h3>Jobs</h3><ul><li>Stop deadheading roses grown for their hips.</li><li>Plant bare-root roses from late autumn.</li><li>Take hardwood cuttings from mid autumn.</li></ul></div>
+            <div><h3>Watch for</h3><ul><li>Fallen diseased leaves. Clear them away.</li></ul></div>
+          </div>
+          <div class="tabpanel" role="tabpanel" id="panel-winter" aria-labelledby="tab-winter" tabindex="0" hidden>
+            <div><h3>Jobs</h3><ul><li>Prune most roses in late winter as growth begins.</li><li>Check stakes and ties on standard roses.</li></ul></div>
+            <div><h3>Watch for</h3><ul><li>Frozen or waterlogged ground. Don't plant until it improves.</li></ul></div>
+          </div>
+          <p class="source-note">Based on the <a href="https://www.rhs.org.uk/plants/popular/roses/growing-guide">RHS rose growing guide</a> and <a href="https://www.rhs.org.uk/plants/roses/shrub/pruning-guide">RHS shrub rose pruning guide</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== USES ===================== -->
+    <section class="section section--ivory" id="uses" aria-labelledby="uses-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Uses</p>
+          <h2 id="uses-title">Roses in gardens, perfume and food</h2>
+        </div>
+        <div class="uses">
+          <div class="use reveal"><svg aria-hidden="true"><use href="#i-garden"/></svg><h3>Gardens</h3><p>From patio pots to huge ramblers that climb through trees, there is a rose for almost every garden space.</p></div>
+          <div class="use reveal"><svg aria-hidden="true"><use href="#i-bottle"/></svg><h3>Perfume</h3><p>Rose oil, also called attar of roses, is made by steam-distilling crushed rose petals. It is a classic perfume ingredient.</p></div>
+          <div class="use reveal"><svg aria-hidden="true"><use href="#i-water"/></svg><h3>Rose water</h3><p>Rose water is a related product of rose distillation. People use it in cooking, cosmetics and religious practices.</p></div>
+          <div class="use reveal"><svg aria-hidden="true"><use href="#i-bowl"/></svg><h3>Food</h3><p>Rose water flavours South Asian sweets such as barfi and gulab jamun. Petals make gulkand, and hips become jam, jelly or tea.</p></div>
+        </div>
+        <p class="notice reveal">Only eat roses grown for food. Garden and florist roses are often sprayed with chemicals. This page does not make health claims about roses.</p>
+        <p class="source-note">Sources: <a href="https://www.rhs.org.uk/plants/popular/roses/growing-guide">RHS</a>, <a href="https://en.wikipedia.org/wiki/Rose">Wikipedia: Rose (perfume, food)</a>, <a href="https://en.wikipedia.org/wiki/Rose_hip">Wikipedia: Rose hip</a>, <a href="https://jmaps.in/static/media/articles/pdf/Vol_46_2_2024_no_1.pdf">J. Medicinal &amp; Aromatic Plant Sciences (gulkand)</a>.</p>
+      </div>
+    </section>
+
+    <!-- ===================== FACTS ===================== -->
+    <section class="section section--dark" id="facts" aria-labelledby="facts-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Did you know?</p>
+          <h2 id="facts-title">Rose facts</h2>
+        </div>
+        <div class="facts">
+          <div class="fact reveal"><p>Most wild roses have five petals. Two species, <i>Rosa sericea</i> and <i>Rosa omeiensis</i>, usually have only four.</p><p class="src">Source: <a href="https://en.wikipedia.org/wiki/Rose">Wikipedia: Rose</a></p></div>
+          <div class="fact reveal"><p>Apples, pears, cherries, almonds and strawberries all belong to the rose family, Rosaceae.</p><p class="src">Source: <a href="https://www.britannica.com/topic/list-of-economically-important-members-of-the-family-Rosaceae-2001611">Britannica</a></p></div>
+          <div class="fact reveal"><p>Each rose hip holds between 5 and 160 tiny, hard fruits called achenes, set among stiff hairs.</p><p class="src">Source: <a href="https://en.wikipedia.org/wiki/Rose">Wikipedia: Rose</a></p></div>
+          <div class="fact reveal"><p>Miniature roses are usually grown on their own roots rather than grafted, which makes them very winter-hardy.</p><p class="src">Source: <a href="https://extension.illinois.edu/roses/roses-types">University of Illinois Extension</a></p></div>
+          <div class="fact reveal"><p>Two Southwest Asian roses, <i>Rosa persica</i> and <i>Rosa berberifolia</i>, are the only roses without compound leaves.</p><p class="src">Source: <a href="https://en.wikipedia.org/wiki/Rose">Wikipedia: Rose</a></p></div>
+          <div class="fact reveal"><p>Kannauj, India's "perfume city", has made rose attar for more than 400 years.</p><p class="src">Source: <a href="https://www.nationalgeographic.com/travel/article/how-did-kannauj-become-a-perfume-capital">National Geographic</a></p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ ===================== -->
+    <section class="section section--blush" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">Questions</p>
+          <h2 id="faq-title">Frequently asked questions</h2>
+        </div>
+        <div class="faq">
+          <details class="reveal">
+            <summary>Do roses really have thorns?</summary>
+            <div class="answer"><p>Not botanically. The sharp points on rose stems are prickles, which grow from the stem's outer layer. A true thorn is a modified shoot.</p><p class="source-note">Source: <a href="https://en.wikipedia.org/wiki/Rose">Wikipedia: Rose</a></p></div>
+          </details>
+          <details class="reveal">
+            <summary>How much sun does a rose need?</summary>
+            <div class="answer"><p>The RHS recommends at least four hours of sunlight a day. Some roses cope with light shade. In hot climates, follow local advice.</p><p class="source-note">Source: <a href="https://www.rhs.org.uk/plants/popular/roses/growing-guide">RHS rose growing guide</a></p></div>
+          </details>
+          <details class="reveal">
+            <summary>Are there natural blue roses?</summary>
+            <div class="answer"><p>No. Hybrid tea roses come in every colour except true blue and black.</p><p class="source-note">Source: <a href="https://extension.illinois.edu/roses/roses-types">University of Illinois Extension</a></p></div>
+          </details>
+          <details class="reveal">
+            <summary>Can I grow a new rose from a cutting?</summary>
+            <div class="answer"><p>Yes. Softwood cuttings in spring usually root in about two months. Hardwood cuttings in autumn and winter are slower. Some roses are protected by Plant Breeders' Rights, so you may not propagate them for sale. A grafted rose grown from a cutting may also behave differently from its parent.</p><p class="source-note">Source: <a href="https://www.rhs.org.uk/plants/popular/roses/growing-guide">RHS rose growing guide</a></p></div>
+          </details>
+          <details class="reveal">
+            <summary>Why should I remove faded flowers?</summary>
+            <div class="answer"><p>Deadheading encourages more blooms. If faded flowers stay on, many roses form hips and stop making new flowers. Leave them on if you want hips for birds or for decoration.</p><p class="source-note">Source: <a href="https://www.rhs.org.uk/plants/popular/roses/growing-guide">RHS rose growing guide</a></p></div>
+          </details>
+          <details class="reveal">
+            <summary>What is the difference between a species and a cultivar?</summary>
+            <div class="answer"><p>A species is a wild rose, such as <i>Rosa canina</i>. A cultivar is a named rose selected and kept going by people, such as <i>Rosa</i> 'Double Delight'. Most garden cultivars have hybrid parents.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== POEM ===================== -->
+    <section class="section poem-section" id="poem" aria-labelledby="poem-title">
+      <div class="container">
+        <article class="poem reveal">
+          <svg class="poem__sprig" aria-hidden="true" viewBox="0 0 220 40"><use href="#sprig"/></svg>
+          <h2 id="poem-title">Ode to a Rose</h2>
+          <span class="script-accent" aria-hidden="true">a poem</span>
+
+          <p class="stanza">
+            In morning light a rose awakes,<br>
+            With dewdrops trembling on its face,<br>
+            Each crimson fold a promise makes<br>
+            Of quiet love and gentle grace.
+          </p>
+
+          <p class="stanza">
+            It does not ask the sun to stay,<br>
+            Nor begs the wind to pass it by;<br>
+            It simply blooms from day to day<br>
+            Beneath the wide and patient sky.
+          </p>
+
+          <p class="stanza">
+            Though thorns may guard its tender heart,<br>
+            Its fragrance travels far and free,<br>
+            A reminder, soft yet smart:<br>
+            True beauty grows with bravery.
+          </p>
+
+          <p class="stanza">
+            So when your days feel dim and grey,<br>
+            Remember how the roses do;<br>
+            They bloom, then fade, then find their way<br>
+            Back into spring, and so will you.
+          </p>
+
+          <p class="author">~ A poem for the rose</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================== CREDITS ===================== -->
+    <section class="section section--ivory credits" id="credits" aria-labelledby="credits-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Credits</p>
+          <h2 id="credits-title">Photo, sound &amp; source credits</h2>
+          <p>All photos come from Wikimedia Commons and have been resized and converted to WebP for this site. Licences: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a> and <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.</p>
+        </div>
+        <h3>Photographs</h3>
+        <ul class="credit-list">
+          <li><a href="https://commons.wikimedia.org/wiki/File:Red_rose_with_black_background.jpg">Red hybrid tea rose, identified by the photographer as &#x27;Kardinal&#x27;</a> by Laitche, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Rose_flower_with_dew.jpg">Pale pink roses after rain</a> by Vijai Kumar K, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:White-Rose-Sitia-Crete.jpg">White rose, Sitia, Crete</a> by Petro Stelte, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:All%C3%A9e_de_roses_Jardin_des_Plantes.JPG">Rose arches at the Jardin des Plantes, Paris</a> by Dinkum, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>, via Wikimedia Commons</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Yellow_rose%E2%80%93IMG_6796_03.jpg">Yellow rose with a bud, Turkey</a> by Kızıl, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Rose_flower_at_the_Lalbaghgarden_Bangalore.jpg">Red rose in the rose garden at Lalbagh, Bengaluru</a> by Rameshng at Malayalam Wikipedia, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>, via Wikimedia Commons</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Orange_Rose_Flower_in_Pune.jpg">Orange rose in Pune</a> by Katharva, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, via Wikimedia Commons</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Pink_rose_bloom_of_a_climbing_rose_at_Boreham,_Essex,_England_1.jpg">Bloom of a pink climbing rose, Boreham, Essex, England</a> by Acabashi, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Arches_with_climbing_roses_in_Owen_Memorial_Rose_Garden.jpg">Arches of climbing roses, Owen Memorial Rose Garden, Eugene, Oregon</a> by Rick Obst, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, via Wikimedia Commons</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Rose_Double_Delight_(8262).jpg">Rose labelled &#x27;Double Delight&#x27; by the photographer, a hybrid tea cultivar</a> by Alexey V. Kurochkin, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Rosa_floribunda_Tuscan_Sun_0zz.jpg">Floribunda rose labelled &#x27;Tuscan Sun&#x27; by the photographer</a> by David J. Stang, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Honey_bee_(Apis_mellifera)_on_a_wild_rose_flower,_by_baby-bear.org.jpg">Honey bee on a wild rose flower</a> by Natalka Ukraine, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, via Wikimedia Commons</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Miniature_rose_from_Lalbagh_Flowershow_-_August_2012_4744.JPG">Miniature roses at the Lalbagh Flower Show, Bengaluru, August 2012</a> by Rameshng, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, via Wikimedia Commons</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Rosa_%27Knock_Out%27,_Morris_Arboretum_01.jpg">Shrub rose labelled &#x27;Knock Out&#x27;, Morris Arboretum, Philadelphia</a> by Shuvaev, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, via Wikimedia Commons</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Rose_hips_in_autumn.jpg">Rose hips in autumn, identified by the photographer as dog rose (Rosa canina), Sweden</a> by W.carter, <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>, via Wikimedia Commons</li>
+        </ul>
+        <h3>Sound</h3>
+        <ul class="credit-list">
+          <li><a href="https://commons.wikimedia.org/wiki/File:Birds_singing_in_garden.ogg">Birds singing in garden</a> by ezwa, public domain (via PDSounds and Wikimedia Commons). MP3 version made by Wikimedia Commons.</li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg">Erik Satie, Gymnopédie No. 1</a>, performed by Robin Alciatore, public domain (Musopen, via Wikimedia Commons).</li>
+          <li>The soft breeze is made live in your browser with the Web Audio API. It uses no recording.</li>
+        </ul>
+        <h3>Text sources</h3>
+        <ol class="sources">
+          <li><a href="https://www.britannica.com/plant/Rosaceae">Britannica: Rosaceae</a></li>
+          <li><a href="https://www.britannica.com/topic/list-of-economically-important-members-of-the-family-Rosaceae-2001611">Britannica: Economically important members of Rosaceae</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Rose">Wikipedia: Rose</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Rose_hip">Wikipedia: Rose hip</a></li>
+          <li><a href="https://www.rhs.org.uk/plants/popular/roses/growing-guide">Royal Horticultural Society: How to grow roses</a></li>
+          <li><a href="https://www.rhs.org.uk/plants/roses/pruning-guide">RHS: Rose pruning, general tips</a></li>
+          <li><a href="https://www.rhs.org.uk/plants/roses/shrub/pruning-guide">RHS: Pruning shrub roses</a></li>
+          <li><a href="https://www.rhs.org.uk/disease/rose-powdery-mildew">RHS: Rose powdery mildew</a></li>
+          <li><a href="https://www.rhs.org.uk/plants/roses/growing-in-containers">RHS: Roses in containers</a></li>
+          <li><a href="https://extension.illinois.edu/roses/roses-types">University of Illinois Extension: Rose types</a></li>
+          <li><a href="https://libguides.nybg.org/classificationroses">New York Botanical Garden: Classification of roses</a></li>
+          <li><a href="https://extension.oregonstate.edu/gardening/pollinators/less-showy-flower-petals-mean-more-pollinators">Oregon State University Extension: Less showy petals mean more pollinators</a></li>
+          <li><a href="https://extension.oregonstate.edu/sites/extd8/files/documents/ec1520.pdf">Oregon State University Extension: Rose problems (EC 1520)</a></li>
+          <li><a href="https://hgic.clemson.edu/the-secret-language-of-flowers-for-valentines-day/">Clemson Cooperative Extension: The secret language of flowers</a></li>
+          <li><a href="https://www.worldhistory.org/article/2264/a-brief-history-of-the-rose/">World History Encyclopedia: A brief history of the rose</a></li>
+          <li><a href="https://www.nationalgeographic.com/travel/article/how-did-kannauj-become-a-perfume-capital">National Geographic: How did Kannauj become a perfume capital?</a></li>
+          <li><a href="https://www.timesnownews.com/lifestyle/people/the-persian-mother-and-daughter-who-gave-the-mughal-court-its-signature-scent-article-154439277">Times Now: The Persian mother and daughter who gave the Mughal court its signature scent</a></li>
+          <li><a href="https://archive.org/download/LandRevenueAdministrationUnderTheMughals_201710/Gardens%20in%20Mughal%20India.pdf">Gardens in Mughal India (PhD thesis, Internet Archive)</a></li>
+          <li><a href="http://researchjournal.co.in/online/IJCBM/IJCBM%203(1)/3_A-126-127.pdf">International Journal of Commerce and Business Management: rose cultivation in Rajasthan</a></li>
+          <li><a href="https://jmaps.in/static/media/articles/pdf/Vol_46_2_2024_no_1.pdf">Journal of Medicinal and Aromatic Plant Sciences: Gulkand review (2024)</a></li>
+          <li><a href="https://chandigarhtourism.gov.in/gardens/rose">Chandigarh Tourism: Zakir Hussain Rose Garden</a></li>
+          <li><a href="https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_cut%20rose.html">TNAU Agritech: Cut rose</a></li>
+          <li><a href="https://www.congress.gov/99/statute/STATUTE-100/STATUTE-100-Pg1128.pdf">US Public Law 99-449 (1986)</a></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>The Rose · a digital rose garden · Made with 🌹</p>
+      <p><a href="#top">Back to the top</a></p>
+    </div>
+  </footer>
+
+  <button class="to-top" id="to-top" type="button" aria-label="Back to top"><svg aria-hidden="true"><use href="#i-up"/></svg></button>
+  <div class="petals" id="petals" aria-hidden="true"></div>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>
